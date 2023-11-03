@@ -2,8 +2,18 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
   color: #333;
-  padding: 20px;
   margin: 0;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 0;
+}
+
+.content {
+  margin: 1.5rem;
 }
 
 h1 {
@@ -18,11 +28,12 @@ ul {
 li {
   background-color: #fff;
   border: 1px solid #ddd;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 0.625rem;
+  padding: 0.625rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 }
+
 
 a {
   text-decoration: none;
