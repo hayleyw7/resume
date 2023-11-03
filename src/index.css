@@ -3,7 +3,7 @@
 body {
   font-family: 'M PLUS 1', sans-serif;
   background-color: #ebf2f3;
-  color: #333;
+  color: #565656;
   margin: 0;
 }
 
@@ -48,19 +48,50 @@ a:hover {
 }
 
 .footer {
-  position: absolute;
+  position: relative; /* or absolute, depending on your layout */
+  z-index: 10; /* Ensure this is higher than the z-index (if any) of the image */
+  /* Other styling */
+  /* ... */
 }
 
 .icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  position: relative;
-  bottom: 4.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
 }
 
 .icon {
   width: 3rem;
-  padding: 0.25rem;
+  padding: 0 0.25rem 0 0.25rem;
+}
+
+/* media queries */
+
+@media screen and (max-width: 800px) {
+  .icon {
+    width: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .icon {
+    width: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .icon {
+    width: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .icon {
+    width: 1rem;
+  }
 }
