@@ -7,6 +7,8 @@ body {
   background-color: #ebf2f3;
   color: #565656;
   margin: 0;
+  text-align: center;
+  align-items: center;
 }
 
 .banner {
@@ -18,6 +20,13 @@ body {
 
 .content {
   margin: 1.5rem;
+}
+
+/* name */
+
+.name-title {
+  margin: 0;
+  padding: 0;
 }
 
 /* resume links */
