@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
+  font-family: 'M PLUS 1', sans-serif;
+  background-color: #ebf2f3;
   color: #333;
   margin: 0;
 }
@@ -26,20 +28,39 @@ ul {
 }
 
 li {
-  background-color: #fff;
+  background-color: #f1f2f5;
   border: 1px solid #ddd;
   margin-bottom: 0.625rem;
   padding: 0.625rem;
   border-radius: 0.25rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.25rem #9090a7;
+  text-align: center;
 }
-
 
 a {
   text-decoration: none;
-  color: #0275d8;
+  color: #565656;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #9e7399;
+  font-weight: bold;
+}
+
+.footer {
+  position: absolute;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  bottom: 4.75rem;
+}
+
+.icon {
+  width: 3rem;
+  padding: 0.25rem;
 }
