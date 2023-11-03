@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap');
 
+/* general */
+
 body {
   font-family: 'M PLUS 1', sans-serif;
   background-color: #ebf2f3;
@@ -18,16 +20,14 @@ body {
   margin: 1.5rem;
 }
 
-h1 {
-  color: #444;
-}
+/* resume links */
 
-ul {
+.resume-links {
   list-style-type: none;
   padding: 0;
 }
 
-li {
+.resume-link {
   background-color: #f1f2f5;
   border: 1px solid #ddd;
   margin-bottom: 0.625rem;
@@ -37,21 +37,21 @@ li {
   text-align: center;
 }
 
-a {
+.resume-link a {
   text-decoration: none;
   color: #565656;
 }
 
-a:hover {
+.resume-link a:hover {
   color: #9e7399;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
+/* footer */
+
 .footer {
-  position: relative; /* or absolute, depending on your layout */
-  z-index: 10; /* Ensure this is higher than the z-index (if any) of the image */
-  /* Other styling */
-  /* ... */
+  position: relative;
+  z-index: 10;
 }
 
 .icons {
