@@ -1,8 +1,7 @@
 // Utility functions
 function repoNeedsShown(repositoryName) {
   const hiddenKeywords = [
-    "practice", "curriculum", "prework", "fundamentals", "hayleyw7",
-    "homework", "2", "first", "freyr", "api", "resources", "intro", "pong", "starter", "skills", "assignments", "markdown", "Hello", "workshop", "resume", "playground", "practice", "refactor"
+    "practice", "curriculum", "prework", "fundamentals", "hayleyw7", "homework", "2", "first", "freyr", "api", "resources", "intro", "pong", "skills", "assignments", "markdown", "Hello", "workshop", "resume", "playground", "practice", "refactor", "debug", "eventPractice", "vocalization", "kit", "test", "dog", "library"
   ];
 
   return !hiddenKeywords.some(keyword => repositoryName.includes(keyword));
@@ -16,11 +15,9 @@ function capitalizeAbbreviation(word) {
     case "jq":
       return "jQuery";
     case "p":
-      return "PZ";
     case "z":
     case "s":
     case "satans":
-    case "gamepad":
       return "";
     case "ts":
       return "TypeScript";
@@ -32,6 +29,8 @@ function capitalizeAbbreviation(word) {
       return "RomCom";
     case "anon":
       return "Anonymous";
+    case "vis":
+      return "Visualization";
     default:
       return word.charAt(0).toUpperCase() + word.slice(1);
   }
@@ -42,11 +41,38 @@ function formatRepositoryName(repositoryName) {
   return repositoryNameWords.map(capitalizeAbbreviation).join(" ");
 }
 
+// Function to check if the repo name includes web project terms
+function repoIsWebProject(repositoryName) {
+  const keywords = ["tracker", "dinner", "operational", "shopping", "decisionator", "affirming", "streaming", "rock", "nite", "rom", "pokedex", "timer", "rancid", "pet", "fitlit", "cookin", "list"];
+  return keywords.some(keyword => repositoryName.includes(keyword));
+}
+
+// Function to check if the repo name includes terminal terms
+function repoIsTerminalProject(repositoryName) {
+  console.log(repositoryName)
+  const keywords = ["terminal", "virtual computer", "flash", "virtual"];
+  return keywords.some(keyword => repositoryName.includes(keyword));
+}
+
+// Function to check if the repo name includes game terms
+function repoIsGameProject(repositoryName) {
+  const keywords = ["PZ", "PS"];
+  return keywords.some(keyword => repositoryName.includes(keyword));
+}
+
 // Main function
 function displayProjects(repositories) {
-  const projectSection = document.getElementById("projects");
-  const projectList = projectSection.querySelector("ul");
-  let displayedRepos = [];
+  const webProjectSection = document.getElementById("webProjects");
+  const webProjectList = webProjectSection.querySelector("ul");
+
+  const terminalProjectSection = document.getElementById("terminalProjects");
+  const terminalProjectList = terminalProjectSection.querySelector("ul");
+
+  const gameProjectSection = document.getElementById("gameProjects");
+  const gameProjectList = gameProjectSection.querySelector("ul");
+
+  const smallProjectSection = document.getElementById("smallProjects");
+  const smallProjectList = smallProjectSection.querySelector("ul");
 
   repositories.forEach(repository => {
     let repositoryName = repository.name;
@@ -55,39 +81,44 @@ function displayProjects(repositories) {
       let formattedName = formatRepositoryName(repositoryName);
       let repositoryURL = repository.html_url;
       let repositoryDate = repository.created_at.split("-")[0];
-
-      displayedRepos.push({
+      let repoItem = {
         name: formattedName,
         url: repositoryURL,
         date: repositoryDate
-      });
+      };
+
+      // Determine if it's a web project or a small project
+      if (repoIsWebProject(repositoryName)) {
+        appendProjectToList(webProjectList, repoItem);
+      } else if (repoIsTerminalProject(repositoryName)) {
+        appendProjectToList(terminalProjectList, repoItem);
+      } else if (repoIsGameProject(repositoryName)) {
+        appendProjectToList(gameProjectList, repoItem);
+      } else {
+        // appendProjectToList(smallProjectList, repoItem);
+      }
     }
   });
+}
 
-  displayedRepos.forEach(repo => {
-    const project = document.createElement("li");
-    const link = document.createElement("a");
-    link.href = repo.url;
-    link.innerText = repo.name;
+// Function to append a project to a given list
+function appendProjectToList(list, repo) {
+  const project = document.createElement("li");
+  const link = document.createElement("a");
+  link.href = repo.url;
+  link.innerText = repo.name;
 
-    const dateSpan = document.createElement("span");
-    dateSpan.textContent = ` (${repo.date})`;
+  const date = document.createElement("span");
+  date.textContent = ` (${repo.date})`;
 
-    project.appendChild(link);
-    project.appendChild(dateSpan);
-    projectList.appendChild(project);
-  });
-
-  if (displayedRepos.length % 2 === 1) {
-    const lastProject = projectList.lastChild;
-    if (lastProject) {
-      projectList.removeChild(lastProject);
-    }
-  }
+  project.appendChild(link);
+  project.appendChild(date);
+  list.appendChild(project);
 }
 
 fetch("https://api.github.com/users/hayleyw7/repos?per_page=200")
   .then(response => {
+    console.log(response)
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
