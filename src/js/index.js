@@ -1,98 +1,93 @@
 // Utility functions
-function repoNeedsShown(repositoryName) {
+function shouldShowRepo(repoName) {
   const hiddenKeywords = [
-    "practice", "curriculum", "prework", "fundamentals", "hayleyw7", "homework", "2", "first", "freyr", "api", "resources", "intro", "pong", "skills", "assignments", "markdown", "Hello", "workshop", "resume", "playground", "practice", "refactor", "debug", "eventPractice", "vocalization", "kit", "test", "dog", "library"
+    'practice', 'curriculum', 'prework', 'fundamentals', 'hayleyw7', 'homework',
+    '2', 'first', 'freyr', 'api', 'resources', 'intro', 'pong', 'skills', 'assignments',
+    'markdown', 'Hello', 'workshop', 'resume', 'playground', 'practice', 'refactor',
+    'debug', 'eventPractice', 'vocalization', 'kit', 'test', 'dog', 'library'
   ];
 
-  return !hiddenKeywords.some(keyword => repositoryName.includes(keyword));
+  return !hiddenKeywords.some(keyword => repoName.includes(keyword));
 }
 
-function capitalizeAbbreviation(word) {
+function capitalizeWord(word) {
   const lowerWord = word.toLowerCase();
   switch (lowerWord) {
-    case "js":
-      return "JavaScript";
-    case "jq":
-      return "jQuery";
-    case "p":
-    case "z":
-    case "s":
-    case "satans":
-      return "";
-    case "ts":
-      return "TypeScript";
-    case "whats":
-      return "What's";
-    case "localstorage":
-      return "localStorage";
-    case "romcom":
-      return "RomCom";
-    case "anon":
-      return "Anonymous";
-    case "vis":
-      return "Visualization";
-    default:
-      return word.charAt(0).toUpperCase() + word.slice(1);
+    case 'js': return 'JavaScript';
+    case 'jq': return 'jQuery';
+    case 'p':
+    case 'z':
+    case 's':
+    case 'satans': return '';
+    case 'ts': return 'TypeScript';
+    case 'whats': return "What's";
+    case 'localstorage': return 'localStorage';
+    case 'romcom': return 'RomCom';
+    case 'anon': return 'Anonymous';
+    case 'vis': return 'Visualization';
+    default: return word.charAt(0).toUpperCase() + word.slice(1);
   }
 }
 
-function formatRepositoryName(repositoryName) {
-  let repositoryNameWords = repositoryName.split(/[-_]|(?=[A-Z])/);
-  return repositoryNameWords.map(capitalizeAbbreviation).join(" ");
+function formatRepoName(repoName) {
+  const repoWords = repoName.split(/[-_]|(?=[A-Z])/);
+  return repoWords.map(capitalizeWord).join(' ');
 }
 
 // Function to check if the repo name includes web project terms
-function repoIsWebProject(repositoryName) {
-  const keywords = ["tracker", "dinner", "operational", "shopping", "decisionator", "affirming", "streaming", "rock", "nite", "rom", "pokedex", "timer", "rancid", "pet", "fitlit", "cookin", "list"];
-  return keywords.some(keyword => repositoryName.includes(keyword));
+function isWebProject(repoName) {
+  const keywords = [
+    'tracker', 'dinner', 'operational', 'shopping', 'decisionator', 'affirming',
+    'streaming', 'rock', 'nite', 'rom', 'pokedex', 'timer', 'rancid', 'pet',
+    'fitlit', 'cookin', 'list'
+  ];
+  return keywords.some(keyword => repoName.includes(keyword));
 }
 
 // Function to check if the repo name includes terminal terms
-function repoIsTerminalProject(repositoryName) {
-  console.log(repositoryName)
-  const keywords = ["terminal", "virtual computer", "flash", "virtual"];
-  return keywords.some(keyword => repositoryName.includes(keyword));
+function isTerminalProject(repoName) {
+  const keywords = ['terminal', 'virtual computer', 'flash', 'virtual'];
+  return keywords.some(keyword => repoName.includes(keyword));
 }
 
 // Function to check if the repo name includes game terms
-function repoIsGameProject(repositoryName) {
-  const keywords = ["PZ", "PS"];
-  return keywords.some(keyword => repositoryName.includes(keyword));
+function isGameProject(repoName) {
+  const keywords = ['PZ', 'PS'];
+  return keywords.some(keyword => repoName.includes(keyword));
 }
 
 // Main function
-function displayProjects(repositories) {
-  const webProjectSection = document.getElementById("webProjects");
-  const webProjectList = webProjectSection.querySelector("ul");
+function displayProjects(repos) {
+  const webProjectSection = document.getElementById('webProjects');
+  const webProjectList = webProjectSection.querySelector('ul');
 
-  const terminalProjectSection = document.getElementById("terminalProjects");
-  const terminalProjectList = terminalProjectSection.querySelector("ul");
+  const terminalProjectSection = document.getElementById('terminalProjects');
+  const terminalProjectList = terminalProjectSection.querySelector('ul');
 
-  const gameProjectSection = document.getElementById("gameProjects");
-  const gameProjectList = gameProjectSection.querySelector("ul");
+  const gameProjectSection = document.getElementById('gameProjects');
+  const gameProjectList = gameProjectSection.querySelector('ul');
 
-  const smallProjectSection = document.getElementById("smallProjects");
-  const smallProjectList = smallProjectSection.querySelector("ul");
+  // const smallProjectSection = document.getElementById('smallProjects');
+  // const smallProjectList = smallProjectSection.querySelector('ul');
 
-  repositories.forEach(repository => {
-    let repositoryName = repository.name;
+  repos.forEach(repo => {
+    let repoName = repo.name;
 
-    if (repoNeedsShown(repositoryName)) {
-      let formattedName = formatRepositoryName(repositoryName);
-      let repositoryURL = repository.html_url;
-      let repositoryDate = repository.created_at.split("-")[0];
+    if (shouldShowRepo(repoName)) {
+      let formattedName = formatRepoName(repoName);
+      let repoUrl = repo.html_url;
+      let repoDate = repo.created_at.substring(0, 4); // Extracting just the year part
       let repoItem = {
         name: formattedName,
-        url: repositoryURL,
-        date: repositoryDate
+        url: repoUrl,
+        date: repoDate
       };
 
-      // Determine if it's a web project or a small project
-      if (repoIsWebProject(repositoryName)) {
+      if (isWebProject(repoName)) {
         appendProjectToList(webProjectList, repoItem);
-      } else if (repoIsTerminalProject(repositoryName)) {
+      } else if (isTerminalProject(repoName)) {
         appendProjectToList(terminalProjectList, repoItem);
-      } else if (repoIsGameProject(repositoryName)) {
+      } else if (isGameProject(repoName)) {
         appendProjectToList(gameProjectList, repoItem);
       } else {
         // appendProjectToList(smallProjectList, repoItem);
@@ -102,30 +97,29 @@ function displayProjects(repositories) {
 }
 
 // Function to append a project to a given list
-function appendProjectToList(list, repo) {
-  const project = document.createElement("li");
-  const link = document.createElement("a");
-  link.href = repo.url;
-  link.innerText = repo.name;
+function appendProjectToList(list, projectItem) {
+  const listItem = document.createElement('li');
+  const anchor = document.createElement('a');
+  anchor.href = projectItem.url;
+  anchor.innerText = projectItem.name;
 
-  const date = document.createElement("span");
-  date.textContent = ` (${repo.date})`;
+  const dateSpan = document.createElement('span');
+  dateSpan.textContent = ` (${projectItem.date})`;
 
-  project.appendChild(link);
-  project.appendChild(date);
-  list.appendChild(project);
+  listItem.appendChild(anchor);
+  listItem.appendChild(dateSpan);
+  list.appendChild(listItem);
 }
 
-fetch("https://api.github.com/users/hayleyw7/repos?per_page=200")
+fetch('https://api.github.com/users/hayleyw7/repos?per_page=200')
   .then(response => {
-    console.log(response)
     if (!response.ok) {
-      throw new Error("Network response was not ok");
+      throw new Error('Network response was not ok');
     }
     return response.json();
   })
   .then(displayProjects)
   .catch(error => {
-    console.error("Error fetching projects from GitHub:", error);
+    console.error('Error fetching projects from GitHub:', error);
     document.getElementById("projects").style.display = "none";
   });
