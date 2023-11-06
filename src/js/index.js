@@ -70,6 +70,8 @@ function displayProjects(repos) {
   // const smallProjectSection = document.getElementById('smallProjects');
   // const smallProjectList = smallProjectSection.querySelector('ul');
 
+  repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
   repos.forEach(repo => {
     let repoName = repo.name;
 
@@ -98,18 +100,41 @@ function displayProjects(repos) {
 
 // Function to append a project to a given list
 function appendProjectToList(list, projectItem) {
+  // Create the list item
   const listItem = document.createElement('li');
   const anchor = document.createElement('a');
   anchor.href = projectItem.url;
   anchor.innerText = projectItem.name;
-
   const dateSpan = document.createElement('span');
   dateSpan.textContent = ` (${projectItem.date})`;
 
+  // Append the anchor and dateSpan to the listItem
   listItem.appendChild(anchor);
   listItem.appendChild(dateSpan);
+
+  // Append the listItem to the list
   list.appendChild(listItem);
+
+  // Check the list's items and update visibility
+  updateListItemVisibility(list);
 }
+
+// Function to hide the last item if there is an odd number of items in the list
+function updateListItemVisibility(list) {
+  const listItems = list.getElementsByTagName('li');
+  const listLength = listItems.length;
+  
+  // First ensure all items are visible, especially if one was previously hidden
+  for (let item of listItems) {
+    item.style.display = '';
+  }
+
+  // Then check if the count is odd, and hide the last item if it is
+  if (listLength % 2 !== 0) {
+    listItems[listLength - 1].style.display = 'none';
+  }
+}
+
 
 fetch('https://api.github.com/users/hayleyw7/repos?per_page=200')
   .then(response => {
