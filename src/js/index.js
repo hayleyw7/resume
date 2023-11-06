@@ -18,6 +18,7 @@ function capitalizeWord(word) {
     case 'p':
     case 'z':
     case 's':
+    case 'starter':
     case 'satans': return '';
     case 'ts': return 'TypeScript';
     case 'whats': return "What's";
