@@ -150,29 +150,31 @@ function hideArticlesOnInit() {
 
 function addClickListenersToHeadings() {
   const headings = document.querySelectorAll('.portfolio h3');
-  const articles = document.querySelectorAll('.portfolio article'); // Make sure this selector matches your articles
+  const articles = document.querySelectorAll('.portfolio article');
 
   headings.forEach(heading => {
     heading.addEventListener('click', function() {
       const correspondingArticle = this.nextElementSibling;
       const isArticleAlreadyOpen = correspondingArticle.style.display === 'block';
 
-      // Collapse all articles
+      // Collapse all articles and remove the 'expanded' class from all headings
       articles.forEach(article => {
         article.style.display = 'none';
       });
+      headings.forEach(h => {
+        h.classList.remove('expanded');
+      });
 
-      // If the corresponding article was already open, it stays closed because we've just collapsed all articles
-      // If it was closed, we open it here
+      // If the corresponding article was closed, we open it here and add the 'expanded' class
       if (!isArticleAlreadyOpen) {
         correspondingArticle.style.display = 'block';
+        this.classList.add('expanded');
         // Scroll to the h3 element
-        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 }
-
 
 fetch('https://api.github.com/users/hayleyw7/repos?per_page=200')
   .then(response => {

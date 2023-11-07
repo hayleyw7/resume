@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap');
 
-/* general */
-
+/* Resets and base styles */
 body {
   font-family: 'M PLUS 1', sans-serif;
   background-color: #ebf2f3;
@@ -11,94 +10,173 @@ body {
   align-items: center;
 }
 
-.banner {
-  width: 100%;
-  height: auto;
-  display: block;
-  padding: 0;
-}
-
-.content {
-  margin: 0.75rem 1.5rem 1.5rem 1.5rem;
-}
-
-/* headings */
-
-.name-title {
+p, ul, .banner, .banner-header {
   margin: 0;
   padding: 0;
-  font-size: 2.5rem;
 }
 
-h2 {
-  font-size: 1.5rem;
+ul {
+  list-style-type: none;
 }
-
-/* links */
 
 a {
   text-decoration: none;
   color: #565656;
 }
 
-a:hover,
-h3:hover {
-  color: #9e7399;
-  cursor: pointer;
-  /* font-weight: bold; */
+/* Utility classes for flexbox */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* background */
-
-.resume-links {
-  list-style-type: none;
-  padding: 0;
+/* Banner and Header */
+.banner, .banner-header {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.resume-link {
-  background-color: #f1f2f5;
-  border: 1px solid #ddd;
-  margin-bottom: 0.625rem;
-  padding: 0.625rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 0.125rem 0.25rem #9090a7;
+.header {
+  position: relative;
   text-align: center;
 }
 
-/* projects */
+.name-title {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  z-index: 2;
+  font-size: 3rem; /* Consolidated font-size */
+  margin-bottom: 0.5rem;
+}
 
+/* Headings */
+h2 {
+  font-size: 1.5rem;
+  background-color: #cbbab9;
+  color: white;
+  padding: 0.5rem;
+  margin-top: 1rem; /* Apply top margin to all h2 elements */
+}
+
+/* Override the margin for the .about class */
+h2.about {
+  margin-top: 0; /* No top margin for h2 with class .about */
+}
+
+h3 {
+  cursor: pointer;
+}
+
+h3::after {
+  content: '\25BC';
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  font-size: 0.75rem;
+}
+
+h3.expanded::after {
+  content: '\25B2';
+  font-size: 0.75rem;
+}
+
+h3:hover {
+  color: #9e7399;
+}
+
+.summary {
+  text-align: center; /* This centers the text within the <p> tag */
+  margin-top: 1rem; /* This sets the top margin */
+  margin-bottom: 1rem; /* This sets the bottom margin */
+  margin-left: auto; /* This allows the block itself to be centered horizontally */
+  margin-right: auto; /* This allows the block itself to be centered horizontally */
+  max-width: 650px;
+}
+
+/* Resume Links */
+.resume-links {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+}
+
+.resume-link {
+  flex: 1;
+  background-color: white;
+  border: 1px solid #ddd;
+  margin: 0 0.625rem;
+  padding: 0.625rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.resume-link:hover {
+  background-color: #bdbcda;
+}
+
+.resume-link:hover a {
+  color: white;
+}
+
+/* Projects */
+.projects {
+  display: flex; /* Add flex display */
+  justify-content: center; /* Center children */
+  flex-wrap: wrap; /* Allow wrapping */
+  margin: 0 auto; /* Center the projects container itself if needed */
+  padding: 0; /* Remove padding or set it explicitly if needed */
+}
+
+/* Projects */
 .projects ul {
   display: flex;
   flex-wrap: wrap;
-  margin: 0.4rem 0;
   padding: 0;
+  list-style-type: none;
+  margin: 0 0 0 0.5rem;
 }
 
 .projects li {
-  flex: 0 0 calc(50% - 2rem);
-  width: 100%;
-  display: block;
+  flex: 0 0 calc(50% - 10px); /* Adjust for spacing, assuming 20px total gap */
+  margin: 0 5px; /* Half of the total horizontal gap */
   padding: 0.5rem 0;
-  min-width: 50%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd; /* Add bottom border */
+}
 
-  &:nth-child(2) {
-    border: none;
-  }
+/* Clear the right margin on every second item to make the border lines touch in the middle */
+.projects li:nth-child(odd) {
+  margin-right: 0;
+}
+
+.projects li:nth-child(even) {
+  margin-left: 0;
+}
+
+/* Add top border to the first two li elements */
+.projects li:nth-child(1),
+.projects li:nth-child(2) {
+  border-top: 0.01rem solid var(--light-green) !important;
+}
+
+#gameProjects article {
+  margin-bottom: 7rem; /* Adjust the value to what you need */
+}
+
+.projects a:hover {
+  color: #9e7399;
 }
 
 .portfolio {
-  margin-bottom: 7rem;
+  margin-bottom: 8rem;
 }
 
-li:not(:first-child),
-skills ul li:not(:nth-child(2)) {
-  border-style: solid;
-  border-width: 0.01rem 0 0;
-  border-color: var(--light-green);
-}
-
-/* footer */
-
+/* Footer */
 .footer {
   position: fixed;
   bottom: 0;
@@ -118,32 +196,35 @@ skills ul li:not(:nth-child(2)) {
 }
 
 .icon {
-  width: 3rem;
-  padding: 0 0.25rem 0 0.25rem;
+  width: 3rem; /* default size */
+  padding: 0 0.25rem;
 }
 
-/* media queries */
-
+/* Responsive adjustments */
 @media screen and (max-width: 800px) {
-  .icon {
-    width: 2.5rem;
-  }
+  .icon { width: 2.5rem; }
+  .name-title { font-size: 2.5rem; }
+  .summary { margin: 0 1rem; }
 }
 
 @media screen and (max-width: 700px) {
-  .icon {
-    width: 2rem;
-  }
+  .icon { width: 2rem; }
+  .name-title { font-size: 2rem; }
 }
 
 @media screen and (max-width: 600px) {
-  .icon {
-    width: 1.5rem;
-  }
+  .icon { width: 1.5rem; }
+  .name-title { font-size: 1.75rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; }
+  h3::after {  font-size: 0.5rem; }
+  .resume-link { font-size: 0.75rem; }
 }
 
 @media screen and (max-width: 500px) {
-  .icon {
-    width: 1rem;
-  }
+  .icon { width: 1rem; }
+  .name-title { font-size: 1.6rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; }
+  li { font-size: 0.75rem; }
 }
