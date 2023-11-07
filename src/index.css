@@ -41,7 +41,8 @@ a {
   color: #565656;
 }
 
-a:hover {
+a:hover,
+h3:hover {
   color: #9e7399;
   cursor: pointer;
   /* font-weight: bold; */
@@ -85,7 +86,7 @@ a:hover {
   }
 }
 
-#smallProjects {
+.portfolio {
   margin-bottom: 7rem;
 }
 

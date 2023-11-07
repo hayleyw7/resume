@@ -97,6 +97,11 @@ function displayProjects(repos) {
       }
     }
   });
+
+  // Once the projects are displayed, hide the articles initially
+  hideArticlesOnInit();
+  // Add event listeners to h3 elements to show/hide articles on click
+  addClickListenersToHeadings();
 }
 
 // Function to append a project to a given list
@@ -134,6 +139,38 @@ function updateListItemVisibility(list) {
   if (listLength % 2 !== 0) {
     listItems[listLength - 1].style.display = 'none';
   }
+}
+
+function hideArticlesOnInit() {
+  const articles = document.querySelectorAll('article.projects');
+  articles.forEach(article => {
+    article.style.display = 'none'; // Hide the articles initially
+  });
+}
+
+function addClickListenersToHeadings() {
+  const headings = document.querySelectorAll('.portfolio h3');
+  const articles = document.querySelectorAll('.portfolio article'); // Make sure this selector matches your articles
+
+  headings.forEach(heading => {
+    heading.addEventListener('click', function() {
+      const correspondingArticle = this.nextElementSibling;
+      const isArticleAlreadyOpen = correspondingArticle.style.display === 'block';
+
+      // Collapse all articles
+      articles.forEach(article => {
+        article.style.display = 'none';
+      });
+
+      // If the corresponding article was already open, it stays closed because we've just collapsed all articles
+      // If it was closed, we open it here
+      if (!isArticleAlreadyOpen) {
+        correspondingArticle.style.display = 'block';
+        // Scroll to the h3 element
+        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 }
 
 
