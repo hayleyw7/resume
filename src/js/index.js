@@ -35,41 +35,19 @@ function formatRepoName(repoName) {
   return repoWords.map(capitalizeWord).join(' ');
 }
 
-// Function to check if the repo name includes web project terms
-function isWebProject(repoName) {
+function filterProjects(repoName) {
   const keywords = [
     'tracker', 'dinner', 'operational', 'shopping', 'decisionator', 'affirming',
     'streaming', 'rock', 'nite', 'rom', 'pokedex', 'timer', 'rancid', 'pet',
-    'fitlit', 'cookin', 'list'
+    'fitlit', 'cookin', 'list', 'terminal', 'flash', 'virtual', 'PZ', 'PS'
   ];
-  return keywords.some(keyword => repoName.includes(keyword));
-}
-
-// Function to check if the repo name includes terminal terms
-function isTerminalProject(repoName) {
-  const keywords = ['terminal', 'virtual computer', 'flash', 'virtual'];
-  return keywords.some(keyword => repoName.includes(keyword));
-}
-
-// Function to check if the repo name includes game terms
-function isGameProject(repoName) {
-  const keywords = ['PZ', 'PS'];
   return keywords.some(keyword => repoName.includes(keyword));
 }
 
 // Main function
 function displayProjects(repos) {
-  const webProjectSection = document.getElementById('webProjects');
-  const webProjectList = webProjectSection.querySelector('ul');
-
-  const terminalProjectSection = document.getElementById('terminalProjects');
-  const terminalProjectList = terminalProjectSection.querySelector('ul');
-
-  const gameProjectSection = document.getElementById('gameProjects');
-  const gameProjectList = gameProjectSection.querySelector('ul');
-
-  // const smallProjectSection = document.getElementById('smallProjects');
-  // const smallProjectList = smallProjectSection.querySelector('ul');
+  const projectSection = document.querySelector('.projects');
+  const projectList = projectSection.querySelector('ul');
 
   repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
@@ -86,14 +64,8 @@ function displayProjects(repos) {
         date: repoDate
       };
 
-      if (isWebProject(repoName)) {
-        appendProjectToList(webProjectList, repoItem);
-      } else if (isTerminalProject(repoName)) {
-        appendProjectToList(terminalProjectList, repoItem);
-      } else if (isGameProject(repoName)) {
-        appendProjectToList(gameProjectList, repoItem);
-      } else {
-        // appendProjectToList(smallProjectList, repoItem);
+      if (filterProjects(repoName)) {
+        appendProjectToList(projectList, repoItem);
       }
     }
   });
@@ -186,5 +158,5 @@ fetch('https://api.github.com/users/hayleyw7/repos?per_page=200')
   .then(displayProjects)
   .catch(error => {
     console.error('Error fetching projects from GitHub:', error);
-    document.getElementById("projects").style.display = "none";
+    document.querySelector(".projects").style.display = "none";
   });
