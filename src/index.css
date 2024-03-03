@@ -49,7 +49,7 @@ a {
 /* Banner and Header */
 .banner, .banner-header {
   width: 100%;
-  height: auto;
+  max-height: 175px;
   display: block;
   background-color: var(--white);
 }
@@ -193,6 +193,7 @@ h2.about {
   bottom: 0;
   width: 100%;
   z-index: 10;
+  max-height: 69px;
 }
 
 .icons {
