@@ -111,7 +111,11 @@ h2.about {
 .summary {
   text-align: center;
   margin: 1rem auto;
-  max-width: 650px;
+  max-width: 800px;
+}
+
+.summary.body {
+  text-align: left;
 }
 
 /* Resume Links */
@@ -216,7 +220,7 @@ h2.about {
 @media screen and (max-width: 800px) {
   .icon { width: 2.5rem; }
   .name-title { font-size: 2.5rem; }
-  .summary { margin: 0 1rem; }
+  .summary { margin: 1rem; }
 }
 
 @media screen and (max-width: 700px) {

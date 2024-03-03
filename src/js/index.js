@@ -86,6 +86,9 @@ function addClickListenerToPortfolioHeading() {
     } else {
       projectList.classList.remove('hidden');
     }
+
+    // Toggle the expanded class on the portfolio heading
+    portfolioHeading.classList.toggle('expanded');
     
     // Scroll to the top of the page
     portfolioHeading.scrollIntoView({
@@ -94,7 +97,6 @@ function addClickListenerToPortfolioHeading() {
     });
   });
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
   addClickListenerToPortfolioHeading();
