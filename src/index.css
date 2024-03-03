@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;700&display=swap');
 
 /* Resets and base styles */
 body {
   font-family: 'M PLUS 1', sans-serif;
-  background-color: #ebf2f3;
+  background-color: #dfe5e6;
   color: #565656;
   margin: 0;
   text-align: center;
@@ -21,7 +21,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #565656;
+  /* color: #565656; */
 }
 
 /* Utility classes for flexbox */
@@ -57,8 +57,8 @@ a {
 /* Headings */
 h2 {
   font-size: 1.5rem;
-  background-color: #cbbab9;
-  color: white;
+  background-color: white;
+  color: #565656;
   padding: 0.5rem;
   margin-top: 1rem; /* Apply top margin to all h2 elements */
 }
@@ -88,6 +88,10 @@ h3:hover {
   color: #9e7399;
 }
 
+.headline {
+  font-weight: 700;
+}
+
 .summary {
   text-align: center; /* This centers the text within the <p> tag */
   margin-top: 1rem; /* This sets the top margin */
@@ -107,8 +111,8 @@ h3:hover {
 
 .resume-link {
   flex: 1;
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: #bdbcda;
+  color: white !important;
   margin: 0 0.625rem;
   padding: 0.625rem;
   border-radius: 0.25rem;
@@ -116,11 +120,12 @@ h3:hover {
 }
 
 .resume-link:hover {
-  background-color: #bdbcda;
+  background-color: white;
+  color: #bdbcda !important;
 }
 
 .resume-link:hover a {
-  color: white;
+  color: white !important;
 }
 
 /* Projects */
@@ -227,4 +232,13 @@ h3:hover {
   h2 { font-size: 1.25rem; }
   h3 { font-size: 1rem; }
   li { font-size: 0.75rem; }
+}
+
+.resume-link a {
+  color: white !important;
+}
+
+.resume-link:hover {
+  color: #bdbcda !important;
+  background-color: #9e7399;
 }
