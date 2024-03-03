@@ -16,6 +16,10 @@
   --light-green: #somecolor; /* Add the actual color value */
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Resets and base styles */
 body {
   font-family: var(--font-family);
@@ -84,23 +88,23 @@ h2.about {
   margin-top: 0;
 }
 
-h3 {
+.portfolio-heading {
   cursor: pointer;
 }
 
-h3::after {
+.portfolio-heading::after {
   content: '\25BC';
   margin-left: 5px;
   transition: transform 0.3s ease;
   font-size: 0.75rem;
 }
 
-h3.expanded::after {
+.portfolio-heading.expanded::after {
   content: '\25B2';
   font-size: 0.75rem;
 }
 
-h3:hover {
+.portfolio-heading:hover {
   color: var(--link-hover-color);
 }
 
@@ -146,52 +150,40 @@ h3:hover {
 }
 
 /* Projects */
-.projects {
+.portfolio-container ul {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.projects ul {
-  display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Ensure flex items wrap into multiple columns */
   padding: 0;
   list-style-type: none;
   margin: 0 0.5rem;
 }
 
-.projects li {
-  flex: 0 0 calc(50% - 10px);
-  margin: 0 5px;
+.portfolio-container li {
+  flex: 1 1 calc(50% - 10px);
+  margin: 5px;
   padding: 0.5rem 0;
   box-sizing: border-box;
   border-bottom: 1px solid var(--projects-border-color);
 }
 
-.projects li:nth-child(odd) {
+.portfolio-container li:nth-child(odd) {
   margin-right: 0;
 }
 
-.projects li:nth-child(even) {
+.portfolio-container li:nth-child(even) {
   margin-left: 0;
 }
 
-.projects li:nth-child(1),
-.projects li:nth-child(2) {
+.portfolio-container li:nth-child(1),
+.portfolio-container li:nth-child(2) {
   border-top: 0.01rem solid var(--light-green);
 }
 
-#gameProjects article {
-  margin-bottom: 7rem;
-}
-
-.projects a {
+.portfolio-container a {
   color: var(--text-color);
 }
 
-.projects a:hover {
+.portfolio-container a:hover {
   color: var(--link-hover-color);
 }
 
@@ -238,18 +230,24 @@ h3:hover {
 @media screen and (max-width: 600px) {
   .icon { width: 1.5rem; }
   .name-title { font-size: 1.75rem; }
-  h2 { font-size: 1.25rem; }
-  h3 { font-size: 1rem; }
-  h3::after { font-size: 0.5rem; }
   .resume-link { font-size: 0.75rem; }
 }
 
 @media screen and (max-width: 500px) {
   .icon { width: 1rem; }
   .name-title { font-size: 1.6rem; }
+  li { font-size: 0.75rem; }
+}
+
+/* Combine shared rules for h2, h3, and body across breakpoints */
+@media screen and (max-width: 600px) {
+  h2 { font-size: 1.25rem; }
+  h3, h3::after { font-size: 1rem; }
+}
+
+@media screen and (max-width: 500px) {
   h2 { font-size: 1.25rem; }
   h3 { font-size: 1rem; }
-  li { font-size: 0.75rem; }
 }
 
 @media screen and (max-width: 400px) {

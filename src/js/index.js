@@ -1,10 +1,7 @@
 // Utility functions
 function shouldShowRepo(repoName) {
   const hiddenKeywords = [
-    'practice', 'curriculum', 'prework', 'fundamentals', 'hayleyw7', 'homework',
-    '2', 'first', 'freyr', 'api', 'resources', 'intro', 'pong', 'skills', 'assignments',
-    'markdown', 'Hello', 'workshop', 'resume', 'playground', 'practice', 'refactor',
-    'debug', 'eventPractice', 'vocalization', 'kit', 'test', 'dog', 'library'
+    'practice', 'curriculum', 'prework', 'fundamentals', 'hayleyw7', 'homework', '2', 'first', 'freyr', 'api', 'resources', 'intro', 'pong', 'skills', 'assignments', 'markdown', 'Hello', 'workshop', 'resume', 'playground', 'practice', 'refactor', 'debug', 'eventPractice', 'vocalization', 'kit', 'test', 'dog', 'library'
   ];
 
   return !hiddenKeywords.some(keyword => repoName.includes(keyword));
@@ -35,25 +32,15 @@ function formatRepoName(repoName) {
   return repoWords.map(capitalizeWord).join(' ');
 }
 
-function filterProjects(repoName) {
-  const keywords = [
-    'tracker', 'dinner', 'operational', 'shopping', 'decisionator', 'affirming',
-    'streaming', 'rock', 'nite', 'rom', 'pokedex', 'timer', 'rancid', 'pet',
-    'fitlit', 'cookin', 'list', 'terminal', 'flash', 'virtual', 'PZ', 'PS'
-  ];
-  return keywords.some(keyword => repoName.includes(keyword));
-}
-
 // Main function
 function displayProjects(repos) {
-  const projectSection = document.querySelector('.projects');
+  const projectSection = document.querySelector('.portfolio');
   const projectList = projectSection.querySelector('ul');
 
   repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   repos.forEach(repo => {
     let repoName = repo.name;
-
     if (shouldShowRepo(repoName)) {
       let formattedName = formatRepoName(repoName);
       let repoUrl = repo.html_url;
@@ -64,21 +51,15 @@ function displayProjects(repos) {
         date: repoDate
       };
 
-      if (filterProjects(repoName)) {
-        appendProjectToList(projectList, repoItem);
-      }
+      appendProjectToList(projectList, repoItem);
     }
   });
 
-  // Once the projects are displayed, hide the articles initially
-  hideArticlesOnInit();
-  // Add event listeners to h3 elements to show/hide articles on click
-  addClickListenersToHeadings();
+  // Add click listener to portfolio heading for toggling the project list visibility
+  addClickListenerToPortfolioHeading();
 }
 
-// Function to append a project to a given list
 function appendProjectToList(list, projectItem) {
-  // Create the list item
   const listItem = document.createElement('li');
   const anchor = document.createElement('a');
   anchor.href = projectItem.url;
@@ -86,67 +67,46 @@ function appendProjectToList(list, projectItem) {
   const dateSpan = document.createElement('span');
   dateSpan.textContent = ` (${projectItem.date})`;
 
-  // Append the anchor and dateSpan to the listItem
   listItem.appendChild(anchor);
   listItem.appendChild(dateSpan);
-
-  // Append the listItem to the list
   list.appendChild(listItem);
-
-  // Check the list's items and update visibility
-  updateListItemVisibility(list);
 }
+// Initialize a variable to track the visibility state of the project list
 
-// Function to hide the last item if there is an odd number of items in the list
-function updateListItemVisibility(list) {
-  const listItems = list.getElementsByTagName('li');
-  const listLength = listItems.length;
-  
-  // First ensure all items are visible, especially if one was previously hidden
-  for (let item of listItems) {
-    item.style.display = '';
-  }
+function addClickListenerToPortfolioHeading() {
+  const portfolioHeading = document.querySelector('.portfolio-heading');
+  const projectList = document.querySelector('.project-list');
 
-  // Then check if the count is odd, and hide the last item if it is
-  if (listLength % 2 !== 0) {
-    listItems[listLength - 1].style.display = 'none';
-  }
-}
+  let isProjectListHidden = true; // Initially, assume the project list is hidden
 
-function hideArticlesOnInit() {
-  const articles = document.querySelectorAll('article.projects');
-  articles.forEach(article => {
-    article.style.display = 'none'; // Hide the articles initially
+  portfolioHeading.addEventListener('click', function() {
+    // Toggle the visibility state
+    isProjectListHidden = !isProjectListHidden;
+
+    // Toggle the 'hidden' class based on the updated state
+    if (isProjectListHidden) {
+      console.log('has hidden class');
+      projectList.classList.add('hidden');
+    } else {
+      console.log('NOT have hidden class');
+      projectList.classList.remove('hidden');
+    }
   });
 }
 
-function addClickListenersToHeadings() {
-  const headings = document.querySelectorAll('.portfolio h3');
-  const articles = document.querySelectorAll('.portfolio article');
 
-  headings.forEach(heading => {
-    heading.addEventListener('click', function() {
-      const correspondingArticle = this.nextElementSibling;
-      const isArticleAlreadyOpen = correspondingArticle.style.display === 'block';
 
-      // Collapse all articles and remove the 'expanded' class from all headings
-      articles.forEach(article => {
-        article.style.display = 'none';
-      });
-      headings.forEach(h => {
-        h.classList.remove('expanded');
-      });
 
-      // If the corresponding article was closed, we open it here and add the 'expanded' class
-      if (!isArticleAlreadyOpen) {
-        correspondingArticle.style.display = 'block';
-        this.classList.add('expanded');
-        // Scroll to the h3 element
-        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-}
+
+
+
+
+// Call the function when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  addClickListenerToPortfolioHeading();
+});
+
+
 
 fetch('https://api.github.com/users/hayleyw7/repos?per_page=200')
   .then(response => {
@@ -158,5 +118,5 @@ fetch('https://api.github.com/users/hayleyw7/repos?per_page=200')
   .then(displayProjects)
   .catch(error => {
     console.error('Error fetching projects from GitHub:', error);
-    document.querySelector(".projects").style.display = "none";
+    document.querySelector(".projects-section").style.display = "none";
   });
