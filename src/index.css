@@ -2,18 +2,13 @@
 
 /* Define root variables */
 :root {
-  --main-bg-color: #dfe5e6;
-  --text-color: #565656;
-  --font-family: 'M PLUS 1', sans-serif;
-  --link-hover-color: #9e7399;
-  --banner-bg-color: white;
-  --resume-link-bg-color: #bdbcda;
-  --resume-link-hover-bg-color: #9e7399;
-  --projects-border-color: #ddd;
-  --icon-default-width: 3rem;
-  --name-title-font-size-large: 3rem;
-  --summary-max-width: 650px;
-  --light-green: #somecolor; /* Add the actual color value */
+  --muted-light-teal: #dfe5e6;
+  --dark-gray: #565656;
+  --dark-pink: #9e7399;
+  --white: white;
+  --lavender: #bdbcda;
+  --light-gray: #ddd;
+  --main-font: 'M PLUS 1', sans-serif;
 }
 
 .hidden {
@@ -22,9 +17,9 @@
 
 /* Resets and base styles */
 body {
-  font-family: var(--font-family);
-  background-color: var(--main-bg-color);
-  color: var(--text-color);
+  font-family: var(--main-font);
+  background-color: var(--muted-light-teal);
+  color: var(--dark-gray);
   margin: 0;
   text-align: center;
   align-items: center;
@@ -41,7 +36,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--dark-gray);
 }
 
 /* Utility classes for flexbox */
@@ -56,7 +51,7 @@ a {
   width: 100%;
   height: auto;
   display: block;
-  background-color: var(--banner-bg-color);
+  background-color: var(--white);
 }
 
 .header {
@@ -71,15 +66,15 @@ a {
   transform: translateX(-50%);
   color: white;
   z-index: 2;
-  font-size: var(--name-title-font-size-large);
+  font-size: 3rem;
   margin-bottom: 0.5rem;
 }
 
 /* Headings */
 h2 {
   font-size: 1.5rem;
-  background-color: var(--banner-bg-color);
-  color: var(--text-color);
+  background-color: var(--white);
+  color: var(--dark-gray);
   padding: 0.5rem;
   margin-top: 1rem;
 }
@@ -90,6 +85,7 @@ h2.about {
 
 .portfolio-heading {
   cursor: pointer;
+  color: var(--dark-gray);
 }
 
 .portfolio-heading::after {
@@ -105,7 +101,7 @@ h2.about {
 }
 
 .portfolio-heading:hover {
-  color: var(--link-hover-color);
+  color: var(--dark-pink);
 }
 
 .headline {
@@ -115,7 +111,7 @@ h2.about {
 .summary {
   text-align: center;
   margin: 1rem auto;
-  max-width: var(--summary-max-width);
+  max-width: 650px;
 }
 
 /* Resume Links */
@@ -128,7 +124,7 @@ h2.about {
 
 .resume-link {
   flex: 1;
-  background-color: var(--resume-link-bg-color);
+  background-color: var(--lavender);
   color: white !important;
   margin: 0 0.625rem;
   padding: 0.625rem;
@@ -137,7 +133,7 @@ h2.about {
 }
 
 .resume-link:hover {
-  background-color: var(--resume-link-hover-bg-color);
+  background-color: var(--dark-pink);
   color: white !important;
 }
 
@@ -163,7 +159,7 @@ h2.about {
   margin: 5px;
   padding: 0.5rem 0;
   box-sizing: border-box;
-  border-bottom: 1px solid var(--projects-border-color);
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .portfolio-container li:nth-child(odd) {
@@ -180,15 +176,15 @@ h2.about {
 }
 
 .portfolio-container a {
-  color: var(--text-color);
+  color: var(--dark-gray);
 }
 
 .portfolio-container a:hover {
-  color: var(--link-hover-color);
+  color: var(--dark-pink);
 }
 
 .portfolio {
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
 }
 
 /* Footer */
@@ -211,7 +207,7 @@ h2.about {
 }
 
 .icon {
-  width: var(--icon-default-width);
+  width: 3rem;
   padding: 0 0.25rem;
 }
 

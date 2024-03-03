@@ -22,6 +22,8 @@ function capitalizeWord(word) {
     case 'romcom': return 'RomCom';
     case 'anon': return 'Anonymous';
     case 'vis': return 'Visualization';
+    case 'flutterdemo': return 'Flutter Demo';
+    case 'oss': return 'OSS';
     default: return word.charAt(0).toUpperCase() + word.slice(1);
   }
 }
@@ -37,20 +39,21 @@ function displayProjects(repos) {
 
   repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-  repos.forEach(repo => {
-    const repoName = repo.name;
-    if (shouldShowRepo(repoName)) {
-      const formattedName = formatRepoName(repoName);
-      const repoUrl = repo.html_url;
-      const repoDate = repo.created_at.substring(0, 4); 
-      const repoItem = {
-        name: formattedName,
-        url: repoUrl,
-        date: repoDate
-      };
+  const filteredRepos = repos.filter(repo => shouldShowRepo(repo.name));
+  const numRepos = filteredRepos.length;
+  const shouldExcludeLast = numRepos % 2 !== 0;
 
-      appendProjectToList(projectList, repoItem);
-    }
+  filteredRepos.slice(0, shouldExcludeLast ? numRepos - 1 : numRepos).forEach(repo => {
+    const formattedName = formatRepoName(repo.name);
+    const repoUrl = repo.html_url;
+    const repoDate = repo.created_at.substring(0, 4);
+    const repoItem = {
+      name: formattedName,
+      url: repoUrl,
+      date: repoDate
+    };
+
+    appendProjectToList(projectList, repoItem);
   });
 
   addClickListenerToPortfolioHeading();
@@ -73,7 +76,7 @@ function addClickListenerToPortfolioHeading() {
   const portfolioHeading = document.querySelector('.portfolio-heading');
   const projectList = document.querySelector('.project-list');
 
-  let isProjectListHidden = true; 
+  let isProjectListHidden = true;
 
   portfolioHeading.addEventListener('click', function() {
     isProjectListHidden = !isProjectListHidden;
@@ -83,8 +86,15 @@ function addClickListenerToPortfolioHeading() {
     } else {
       projectList.classList.remove('hidden');
     }
+    
+    // Scroll to the top of the page
+    portfolioHeading.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start' // Scroll to the top of the portfolio section
+    });
   });
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
   addClickListenerToPortfolioHeading();
