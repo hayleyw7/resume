@@ -1,4 +1,3 @@
-// Utility functions
 function shouldShowRepo(repoName) {
   const hiddenKeywords = [
     'practice', 'curriculum', 'prework', 'fundamentals', 'hayleyw7', 'homework', '2', 'first', 'freyr', 'api', 'resources', 'intro', 'pong', 'skills', 'assignments', 'markdown', 'Hello', 'workshop', 'resume', 'playground', 'practice', 'refactor', 'debug', 'eventPractice', 'vocalization', 'kit', 'test', 'dog', 'library'
@@ -32,7 +31,6 @@ function formatRepoName(repoName) {
   return repoWords.map(capitalizeWord).join(' ');
 }
 
-// Main function
 function displayProjects(repos) {
   const projectSection = document.querySelector('.portfolio');
   const projectList = projectSection.querySelector('ul');
@@ -40,12 +38,12 @@ function displayProjects(repos) {
   repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
   repos.forEach(repo => {
-    let repoName = repo.name;
+    const repoName = repo.name;
     if (shouldShowRepo(repoName)) {
-      let formattedName = formatRepoName(repoName);
-      let repoUrl = repo.html_url;
-      let repoDate = repo.created_at.substring(0, 4); // Extracting just the year part
-      let repoItem = {
+      const formattedName = formatRepoName(repoName);
+      const repoUrl = repo.html_url;
+      const repoDate = repo.created_at.substring(0, 4); 
+      const repoItem = {
         name: formattedName,
         url: repoUrl,
         date: repoDate
@@ -55,7 +53,6 @@ function displayProjects(repos) {
     }
   });
 
-  // Add click listener to portfolio heading for toggling the project list visibility
   addClickListenerToPortfolioHeading();
 }
 
@@ -71,42 +68,27 @@ function appendProjectToList(list, projectItem) {
   listItem.appendChild(dateSpan);
   list.appendChild(listItem);
 }
-// Initialize a variable to track the visibility state of the project list
 
 function addClickListenerToPortfolioHeading() {
   const portfolioHeading = document.querySelector('.portfolio-heading');
   const projectList = document.querySelector('.project-list');
 
-  let isProjectListHidden = true; // Initially, assume the project list is hidden
+  let isProjectListHidden = true; 
 
   portfolioHeading.addEventListener('click', function() {
-    // Toggle the visibility state
     isProjectListHidden = !isProjectListHidden;
 
-    // Toggle the 'hidden' class based on the updated state
     if (isProjectListHidden) {
-      console.log('has hidden class');
       projectList.classList.add('hidden');
     } else {
-      console.log('NOT have hidden class');
       projectList.classList.remove('hidden');
     }
   });
 }
 
-
-
-
-
-
-
-
-// Call the function when the DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
   addClickListenerToPortfolioHeading();
 });
-
-
 
 fetch('https://api.github.com/users/hayleyw7/repos?per_page=200')
   .then(response => {
