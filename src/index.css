@@ -120,8 +120,12 @@ h3:hover {
 }
 
 .resume-link:hover {
-  background-color: white;
   color: #bdbcda !important;
+  background-color: #9e7399;
+}
+
+.resume-link a {
+  color: white !important;
 }
 
 .resume-link:hover a {
@@ -171,6 +175,10 @@ h3:hover {
 
 #gameProjects article {
   margin-bottom: 7rem; /* Adjust the value to what you need */
+}
+
+.projects a {
+  color: #565656;
 }
 
 .projects a:hover {
@@ -232,13 +240,4 @@ h3:hover {
   h2 { font-size: 1.25rem; }
   h3 { font-size: 1rem; }
   li { font-size: 0.75rem; }
-}
-
-.resume-link a {
-  color: white !important;
-}
-
-.resume-link:hover {
-  color: #bdbcda !important;
-  background-color: #9e7399;
 }
