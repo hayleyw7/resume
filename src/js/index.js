@@ -85,25 +85,22 @@ function addClickListenerToPortfolioHeading() {
   const portfolioHeading = document.querySelector('.portfolio-heading');
   const projectList = document.querySelector('.project-list');
 
-  let isProjectListHidden = true; // Initial state: list is hidden.
+  let isProjectListHidden = true;
 
   portfolioHeading.addEventListener('click', function() {
-    // Toggle the visibility state
     isProjectListHidden = !isProjectListHidden;
 
-    // If the list is now meant to be shown (i.e., isProjectListHidden is false)
     if (!isProjectListHidden) {
       portfolioHeading.classList.add('expanded');
       projectList.classList.remove('hidden');
     } else {
-      // If the list is now meant to be hidden
       portfolioHeading.classList.remove('expanded');
       projectList.classList.add('hidden');
     }
 
     portfolioHeading.scrollIntoView({
       behavior: 'smooth',
-      block: 'start' // Scroll to the top of the portfolio section
+      block: 'start'
     });
   });
 }
