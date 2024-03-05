@@ -2,9 +2,9 @@
 
 /* Define root variables */
 :root {
-  --muted-light-teal: #dfe5e6;
+  --light-gray: #dfe5e6;
   --dark-gray: #565656;
-  --dark-pink: #9e7399;
+  --blue: #8197ad;
   --white: white;
   --lavender: #bdbcda;
   --light-gray: #ddd;
@@ -18,7 +18,7 @@
 /* Resets and base styles */
 body {
   font-family: var(--main-font);
-  background-color: var(--muted-light-teal);
+  background-color: var(--light-gray);
   color: var(--dark-gray);
   margin: 0;
   text-align: center;
@@ -101,7 +101,7 @@ h2.about {
 }
 
 .portfolio-heading:hover {
-  color: var(--dark-pink);
+  color: var(--blue);
 }
 
 .headline {
@@ -137,7 +137,7 @@ h2.about {
 }
 
 .resume-link:hover {
-  background-color: var(--dark-pink);
+  background-color: var(--blue);
   color: white !important;
 }
 
@@ -184,7 +184,7 @@ h2.about {
 }
 
 .portfolio-container a:hover {
-  color: var(--dark-pink);
+  color: var(--blue);
 }
 
 .portfolio {
