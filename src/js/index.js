@@ -1,6 +1,6 @@
 function shouldShowRepo(repoName) {
   const hiddenKeywords = [
-    'practice', 'curriculum', 'prework', 'fundamentals', 'hayleyw7', 'homework', '2', 'first', 'freyr', 'api', 'resources', 'intro', 'pong', 'skills', 'assignments', 'markdown', 'Hello', 'workshop', 'resume', 'playground', 'practice', 'refactor', 'debug', 'eventPractice', 'vocalization', 'kit', 'test', 'dog', 'library'
+    'practice', 'curriculum', 'prework', 'fundamentals', 'hayleyw7', 'homework', '2', 'first', 'freyr', 'api', 'resources', 'intro', 'pong', 'skills', 'assignments', 'markdown', 'workshop', 'resume', 'playground', 'practice', 'refactor', 'debug', 'eventPractice', 'vocalization', 'kit', 'test', 'dog', 'library'
   ];
 
   return !hiddenKeywords.some(keyword => repoName.includes(keyword));
@@ -31,7 +31,11 @@ function capitalizeWord(word) {
     case 'operational': return 'Op';
     case 'computer': return 'PC';
     case 'scrollbars': return 'Scroll';
-    case 'todo': return 'To Do';
+    case 'todo': return 'To Do'
+    case 'jotai': return 'Jotai Demo';
+    case 'nextjs': return 'Next Demo';
+    case 'postgres': return 'Postgres Demo';
+    case 'extensions': return 'Extensions Demo';
     default: return word.charAt(0).toUpperCase() + word.slice(1);
   }
 }

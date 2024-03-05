@@ -23,6 +23,7 @@ body {
   margin: 0;
   text-align: center;
   align-items: center;
+  font-size: 100%;
 }
 
 p, ul, .banner, .banner-header {
@@ -84,32 +85,34 @@ a {
 h2 {
   font-size: 1.5rem;
   background-color: var(--light-gray);
-  color: var(--dark-gray);
+  color: var(--blue);
   padding: 0.5rem;
   margin-top: 1rem;
 }
 
 h2.about {
-  margin-top: 0;
+  margin: 0;
+  color: var(--blue);
 }
 
+/* code */
 .portfolio-heading {
   cursor: pointer;
-  color: var(--dark-gray);
   display: inline-flex;
   align-items: center;
   width: 100%;
   justify-content: center;
   box-sizing: border-box;
+  font-size: 1rem;
 }
 
 .portfolio-heading::after {
   content: '\25BC';
   margin-left: 0.25rem;
   transition: transform 0.3s ease;
-  font-size: 0.75rem;
+  font-size:0.75rem;
   display: inline-block;
-  transform: translateY(0.22rem); 
+  transform: translateY(0.1rem); 
 }
 
 .portfolio-heading.expanded::after {
@@ -135,7 +138,7 @@ h2.about {
   display: flex;
   justify-content: center;
   padding: 0 1%;
-  width: 97%;
+  width: 98%;
 }
 
 .resume-link {
