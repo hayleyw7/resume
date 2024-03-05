@@ -8,7 +8,6 @@ function shouldShowRepo(repoName) {
 
 function capitalizeWord(word) {
   const lowerWord = word.toLowerCase();
-  console.log(lowerWord)
   switch (lowerWord) {
     case 'js':
     case 'javascript' : return 'JS';

@@ -105,19 +105,15 @@ h2.about {
 
 .portfolio-heading::after {
   content: '\25BC';
-  margin-left: 1rem;
+  margin-left: 0.25rem;
   transition: transform 0.3s ease;
   font-size: 0.75rem;
   display: inline-block;
-  transform: translateY(0.25rem); 
+  transform: translateY(0.22rem); 
 }
 
 .portfolio-heading.expanded::after {
   content: '\25B2';
-}
-
-.portfolio-heading:hover {
-  color: var(--blue);
 }
 
 .headline {
@@ -144,7 +140,7 @@ h2.about {
 
 .resume-link {
   flex: 1;
-  background-color: var(--lavender);
+  background-color: var(--blue);
   color: white !important;
   margin: 0 0.625rem;
   padding: 0.625rem;
