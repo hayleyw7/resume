@@ -8,14 +8,20 @@ function shouldShowRepo(repoName) {
 
 function capitalizeWord(word) {
   const lowerWord = word.toLowerCase();
+  console.log(lowerWord)
   switch (lowerWord) {
-    case 'js': return 'JavaScript';
+    case 'js':
+    case 'javascript' : return 'JS';
     case 'jq': return 'jQuery';
     case 'p':
     case 'z':
     case 's':
     case 'starter':
-    case 'satans': return '';
+    case 'hello':
+    case 'terminal':
+    case 'oss':
+    case 'satans':
+    case 'confirmation': return '';
     case 'ts': return 'TypeScript';
     case 'whats': return "What's";
     case 'localstorage': return 'localStorage';
@@ -23,7 +29,10 @@ function capitalizeWord(word) {
     case 'anon': return 'Anonymous';
     case 'vis': return 'Visualization';
     case 'flutterdemo': return 'Flutter Demo';
-    case 'oss': return 'OSS';
+    case 'operational': return 'Op';
+    case 'computer': return 'PC';
+    case 'scrollbars': return 'Scroll';
+    case 'todo': return 'To Do';
     default: return word.charAt(0).toUpperCase() + word.slice(1);
   }
 }

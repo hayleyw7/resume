@@ -160,7 +160,7 @@ h2.about {
   flex-wrap: wrap; /* Ensure flex items wrap into multiple columns */
   padding: 0;
   list-style-type: none;
-  margin: 0 0.5rem;
+  margin: 0 1rem;
 }
 
 .portfolio-container li {
@@ -181,7 +181,7 @@ h2.about {
 
 .portfolio-container li:nth-child(1),
 .portfolio-container li:nth-child(2) {
-  border-top: 0.01rem solid var(--light-gray);
+  border-top: 1px solid var(--light-gray);
 }
 
 .portfolio-container a {
