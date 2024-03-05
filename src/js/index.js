@@ -1,6 +1,6 @@
 function shouldShowRepo(repoName) {
   const hiddenKeywords = [
-    'practice', 'curriculum', 'prework', 'fundamentals', 'hayleyw7', 'homework', '2', 'first', 'freyr', 'api', 'resources', 'intro', 'pong', 'skills', 'assignments', 'markdown', 'workshop', 'resume', 'playground', 'practice', 'refactor', 'debug', 'eventPractice', 'vocalization', 'kit', 'test', 'dog', 'library'
+    'practice', 'curriculum', 'prework', 'fundamentals', 'hayleyw7', 'homework', '2', 'first', 'freyr', 'api', 'resources', 'intro', 'pong', 'skills', 'assignments', 'markdown', 'workshop', 'resume', 'playground', 'practice', 'refactor', 'debug', 'eventPractice', 'vocalization', 'kit', 'test', 'dog', 'library', 'hello', 'Hello', 'demo', 'vanilla', 'airtable', "jq", "slim", 'bootstrap', 'best'
   ];
 
   return !hiddenKeywords.some(keyword => repoName.includes(keyword));
@@ -9,9 +9,6 @@ function shouldShowRepo(repoName) {
 function capitalizeWord(word) {
   const lowerWord = word.toLowerCase();
   switch (lowerWord) {
-    case 'js':
-    case 'javascript' : return 'JS';
-    case 'jq': return 'jQuery';
     case 'p':
     case 'z':
     case 's':
@@ -20,7 +17,12 @@ function capitalizeWord(word) {
     case 'terminal':
     case 'oss':
     case 'satans':
-    case 'confirmation': return '';
+    case 'code':
+    case 'confirmation':
+      return '';
+    case 'js':
+    case 'javascript' :
+      return 'JS';
     case 'ts': return 'TypeScript';
     case 'whats': return "What's";
     case 'localstorage': return 'localStorage';
@@ -31,11 +33,9 @@ function capitalizeWord(word) {
     case 'operational': return 'Op';
     case 'computer': return 'PC';
     case 'scrollbars': return 'Scroll';
-    case 'todo': return 'To Do'
-    case 'jotai': return 'Jotai Demo';
-    case 'nextjs': return 'Next Demo';
-    case 'postgres': return 'Postgres Demo';
-    case 'extensions': return 'Extensions Demo';
+    case 'todo': return 'To Do';
+    case 'sandbox': return 'Capture The Flag';
+    case 'foundations': return 'Mythicals';
     default: return word.charAt(0).toUpperCase() + word.slice(1);
   }
 }
