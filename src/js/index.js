@@ -85,21 +85,22 @@ function addClickListenerToPortfolioHeading() {
   const portfolioHeading = document.querySelector('.portfolio-heading');
   const projectList = document.querySelector('.project-list');
 
-  let isProjectListHidden = true;
+  let isProjectListHidden = true; // Initial state: list is hidden.
 
   portfolioHeading.addEventListener('click', function() {
+    // Toggle the visibility state
     isProjectListHidden = !isProjectListHidden;
 
-    if (isProjectListHidden) {
-      projectList.classList.add('hidden');
-    } else {
+    // If the list is now meant to be shown (i.e., isProjectListHidden is false)
+    if (!isProjectListHidden) {
+      portfolioHeading.classList.add('expanded');
       projectList.classList.remove('hidden');
+    } else {
+      // If the list is now meant to be hidden
+      portfolioHeading.classList.remove('expanded');
+      projectList.classList.add('hidden');
     }
 
-    // Toggle the expanded class on the portfolio heading
-    portfolioHeading.classList.toggle('expanded');
-    
-    // Scroll to the top of the page
     portfolioHeading.scrollIntoView({
       behavior: 'smooth',
       block: 'start' // Scroll to the top of the portfolio section
