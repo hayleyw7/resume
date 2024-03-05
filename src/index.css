@@ -55,7 +55,7 @@ a {
 }
 
 .banner-footer {
-  min-height: 45px;
+  min-height: 50px;
 }
 
 .header {
@@ -235,13 +235,11 @@ h2.about {
 }
 
 @media screen and (max-width: 600px) {
-  .icon { width: 1.5rem; }
   .name-title { font-size: 2rem; }
   .resume-link { font-size: 0.75rem; }
 }
 
 @media screen and (max-width: 500px) {
-  .icon { width: 1.5rem; }
   li { font-size: 0.75rem; }
 }
 
