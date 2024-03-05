@@ -54,8 +54,13 @@ a {
   background-color: var(--white);
 }
 
+/* .banner-header {
+  position: fixed;
+  top: 0;
+} */
+
 .banner-footer {
-  min-height: 50px;
+  min-height: 60px;
 }
 
 .header {
@@ -72,7 +77,7 @@ a {
   z-index: 2;
   font-size: 3rem;
   margin-bottom: 0.5rem;
-  width: 100%;
+  width: 90%;
 }
 
 /* Headings */
@@ -95,16 +100,16 @@ h2.about {
   align-items: center;
   width: 100%;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .portfolio-heading::after {
   content: '\25BC';
-  margin-left: 5px;
+  margin-left: 1rem;
   transition: transform 0.3s ease;
   font-size: 0.75rem;
-
   display: inline-block;
-    transform: translateY(0.25rem); 
+  transform: translateY(0.25rem); 
 }
 
 .portfolio-heading.expanded::after {
@@ -134,7 +139,7 @@ h2.about {
   display: flex;
   justify-content: center;
   padding: 0 1%;
-  width: 98%;
+  width: 97%;
 }
 
 .resume-link {
