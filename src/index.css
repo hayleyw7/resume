@@ -87,7 +87,7 @@ h2 {
   background-color: var(--light-gray);
   color: var(--blue);
   padding: 0.5rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 
 h2.about {
@@ -96,7 +96,8 @@ h2.about {
 }
 
 /* code */
-.portfolio-heading {
+.projects-heading,
+.media-heading {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -106,7 +107,12 @@ h2.about {
   font-size: 1rem;
 }
 
-.portfolio-heading::after {
+.media-heading {
+  margin-top: 0;
+}
+
+.projects-heading::after,
+.media-heading::after {
   content: '\25BC';
   margin-left: 0.25rem;
   transition: transform 0.3s ease;
@@ -115,7 +121,8 @@ h2.about {
   transform: translateY(0.1rem); 
 }
 
-.portfolio-heading.expanded::after {
+.projects-heading.expanded::after,
+.media-heading.expanded::after {
   content: '\25B2';
 }
 
@@ -166,15 +173,17 @@ h2.about {
 }
 
 /* Projects */
-.portfolio-container ul {
+.projects-container ul,
+.media-container ul {
   display: flex;
   flex-wrap: wrap; /* Ensure flex items wrap into multiple columns */
   padding: 0;
   list-style-type: none;
-  margin: 0 1rem;
+  margin: -0.75rem 1rem;
 }
 
-.portfolio-container li {
+.projects-container li,
+.media-container li {
   flex: 1 1 calc(50% - 10px);
   margin: 5px;
   padding: 0.5rem 0;
@@ -182,28 +191,34 @@ h2.about {
   border-bottom: 1px solid var(--light-gray);
 }
 
-.portfolio-container li:nth-child(odd) {
+.projects-container li:last-child,
+.media-container li:last-child,
+.projects-container li:nth-last-child(2):nth-child(odd),
+.media-container li:nth-last-child(2):nth-child(odd) {
+  border-bottom: none;
+}
+
+.projects-container li:nth-child(odd),
+.media-container li:nth-child(odd) {
   margin-right: 0;
 }
 
-.portfolio-container li:nth-child(even) {
+.projects-container li:nth-child(even),
+.media-container li:nth-child(even) {
   margin-left: 0;
 }
 
-.portfolio-container li:nth-child(1),
-.portfolio-container li:nth-child(2) {
-  border-top: 1px solid var(--light-gray);
-}
-
-.portfolio-container a {
+.projects-container a,
+.media-container a {
   color: var(--dark-gray);
 }
 
-.portfolio-container a:hover {
+.projects-container a:hover,
+.media-container a:hover {
   color: var(--blue);
 }
 
-.portfolio {
+.media {
   margin-bottom: 5rem;
 }
 
