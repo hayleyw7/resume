@@ -130,6 +130,15 @@ h2.about {
   font-weight: 700;
 }
 
+.headline-item {
+  display: inline;
+}
+
+.headline-line:first-child::after,
+.headline-item:not(:last-child)::after {
+  content: " | ";
+}
+
 .summary {
   text-align: center;
   margin: 1rem auto;
@@ -258,11 +267,34 @@ h2.about {
 @media screen and (max-width: 700px) {
   .icon { width: 2rem; }
   .name-title { font-size: 3rem; }
+
+  .headline-line {
+    display: block;
+  }
+
+  .headline-item {
+    display: inline;
+    margin-bottom: 0.5em;
+  }
+
+  .headline-item:not(:last-child)::after {
+    content: " |";
+  }
+
+  /* Remove the pipe after the first .headline-line */
+  .headline-line:first-child::after {
+    content: "";
+  }
 }
 
 @media screen and (max-width: 600px) {
   .name-title { font-size: 2rem; }
   .resume-link { font-size: 0.75rem; }
+
+  .break {
+    display: block;
+    margin-left: -0.5em;
+  }
 }
 
 @media screen and (max-width: 500px) {
