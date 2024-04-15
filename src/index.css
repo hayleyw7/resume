@@ -418,6 +418,12 @@ h2.about {
     border-bottom: 1px solid var(--light-gray);
   }
 
+  .projects-container ul li:nth-last-child(2),
+  .media-container ul li:nth-last-child(2),
+  .contact-container ul li:nth-last-child(2) {
+    border-bottom: 1px solid var(--light-gray);
+  }
+
   /* Removes bottom border for the last list item in each container */
   .projects-container li:last-child,
   .media-container li:last-child,
