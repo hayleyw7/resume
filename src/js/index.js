@@ -89,6 +89,7 @@ function displayProjects(repos) {
 
     appendProjectToList(projectList, repoItem);
   });
+  document.querySelector(".loader-icon").style.display = "none";
 };
 
 function appendProjectToList(list, projectItem) {
@@ -120,7 +121,7 @@ function addClickListenerToListSection(section) {
       heading: ".contact-heading",
       list: ".contact-list",
       otherSections: ["projects", "media"],
-    }
+    },
   };
 
   const headingElement = document.querySelector(sectionMapping[section].heading);
@@ -128,7 +129,6 @@ function addClickListenerToListSection(section) {
   const otherSections = sectionMapping[section].otherSections;
 
   headingElement.addEventListener("click", function() {
-    // Toggle the visibility of the current section
     const isHidden = listElement.classList.contains("hidden");
     if (isHidden) {
       listElement.classList.remove("hidden");
@@ -138,7 +138,6 @@ function addClickListenerToListSection(section) {
       headingElement.classList.remove("expanded");
     }
 
-    // Hide all other sections and remove 'expanded' class from their headings
     otherSections.forEach(otherSection => {
       const otherList = document.querySelector(sectionMapping[otherSection].list);
       const otherHeading = document.querySelector(sectionMapping[otherSection].heading);
@@ -155,10 +154,7 @@ function addClickListenerToListSection(section) {
       block: "start"
     });
   });
-}
-
-
-
+};
 
 fetch("https://api.github.com/users/hayleyw7/repos?per_page=200")
   .then(response => {
