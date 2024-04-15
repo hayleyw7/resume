@@ -105,58 +105,59 @@ function appendProjectToList(list, projectItem) {
 };
 
 function addClickListenerToListSection(section) {
-   const sectionMapping = {
-     projects: {
-       heading: ".projects-heading",
-       list: ".projects-list",
-       otherLists: [".media-list", ".contact-list"],
-     },
-     media: {
-       heading: ".media-heading",
-       list: ".media-list",
-       otherLists: [".projects-list", ".contact-list"],
-     },
-     contact: {
-       heading: ".contact-heading",
-       list: ".contact-list",
-       otherLists: [".projects-list", ".media-list"],
-     }
-   };
+  const sectionMapping = {
+    projects: {
+      heading: ".projects-heading",
+      list: ".projects-list",
+      otherSections: ["media", "contact"],
+    },
+    media: {
+      heading: ".media-heading",
+      list: ".media-list",
+      otherSections: ["projects", "contact"],
+    },
+    contact: {
+      heading: ".contact-heading",
+      list: ".contact-list",
+      otherSections: ["projects", "media"],
+    }
+  };
 
-   const headingElement = document.querySelector(sectionMapping[section].heading);
-   const listElement = document.querySelector(sectionMapping[section].list);
-   const otherListElements = document.querySelectorAll(sectionMapping[section].otherLists.join(", "));
+  const headingElement = document.querySelector(sectionMapping[section].heading);
+  const listElement = document.querySelector(sectionMapping[section].list);
+  const otherSections = sectionMapping[section].otherSections;
 
-   headingElement.addEventListener("click", function() {
-     // Toggle the visibility of the current section
-     if (listElement.classList.contains("hidden")) {
-       listElement.classList.remove("hidden");
-       headingElement.classList.add("expanded");
-     } else {
-       listElement.classList.add("hidden");
-       headingElement.classList.remove("expanded");
-     }
+  headingElement.addEventListener("click", function() {
+    // Toggle the visibility of the current section
+    const isHidden = listElement.classList.contains("hidden");
+    if (isHidden) {
+      listElement.classList.remove("hidden");
+      headingElement.classList.add("expanded");
+    } else {
+      listElement.classList.add("hidden");
+      headingElement.classList.remove("expanded");
+    }
 
-     // Hide all other sections
-     otherListElements.forEach(otherList => {
-       if (!otherList.classList.contains("hidden")) {
-         otherList.classList.add("hidden");
-         // Modify to get the heading element using class of the list modified to match heading class
-         const otherHeadingClass = otherList.className.replace("list", "heading");
-         const otherHeading = document.querySelector("." + otherHeadingClass);
-         if (otherHeading) {
-           otherHeading.classList.remove("expanded");
-         }
-       }
-     });
+    // Hide all other sections and remove 'expanded' class from their headings
+    otherSections.forEach(otherSection => {
+      const otherList = document.querySelector(sectionMapping[otherSection].list);
+      const otherHeading = document.querySelector(sectionMapping[otherSection].heading);
 
-     // Scroll to the current heading
-     headingElement.scrollIntoView({
-       behavior: "smooth",
-       block: "start"
-     });
-   });
- };
+      if (!otherList.classList.contains("hidden")) {
+        otherList.classList.add("hidden");
+        otherHeading.classList.remove("expanded");
+      }
+    });
+
+    // Scroll to the current heading
+    headingElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+}
+
+
 
 
 fetch("https://api.github.com/users/hayleyw7/repos?per_page=200")
