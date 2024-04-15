@@ -188,7 +188,7 @@ h2.about {
   flex-wrap: wrap; /* Ensure flex items wrap into multiple columns */
   padding: 0;
   list-style-type: none;
-  margin: -0.75rem 1rem;
+  margin: -0.75rem 1rem 1rem 1rem;
 }
 
 .projects-container li,
@@ -262,11 +262,6 @@ h2.about {
   .icon { width: 2.5rem; }
   .name-title { font-size: 2.5rem; }
   .summary { margin: 1rem; }
-
-  .projects-container ul,
-  .media-container ul {
-    margin-bottom: 1rem;
-  }
 }
 
 @media screen and (max-width: 700px) {
