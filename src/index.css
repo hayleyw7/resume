@@ -296,13 +296,78 @@ h2.about {
 
 @media screen and (max-width: 500px) {
   li { font-size: 0.75rem; }
-  h2 { font-size: 1rem; }
+  /* h2 { font-size: 1rem; } */
   h3 { font-size: 1rem; }
 }
 
 @media screen and (max-width: 400px) {
   .name-title { font-size: 1.75rem; }
-  h2 { font-size: 0.75rem; }
-  h3 { font-size: 0.8rem; }
+  .summary,
   body { font-size: 0.8rem; }
+  .headline-item {
+    font-size: 0.8rem;
+  }
+
+  h2,
+  .headline-item,
+  .summary.body,
+  .resume-link,
+  li {
+    font-size: 0.6rem !important;
+  }
+
+  .headline {
+    margin: 0.25rem 0.7rem;
+  }
+
+  .headline-line {
+    margin-bottom: -0.25rem;
+  }
+
+  .summary.body {
+    margin-top: 0.6rem;
+  }
+
+  .resume-link {
+    padding: 0.2rem;
+    margin: 0.25rem 0.25rem 0.25rem 0.25rem;
+  }
+
+  .projects-heading::after,
+  .media-heading::after {
+    font-size: 0.5rem !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .headline-line {
+    display: contents; /* This makes the container 'disappear', placing its children directly under the parent */
+  }
+
+  .headline-item {
+    display: inline; /* Ensures each item is displayed inline */
+  }
+
+  .headline-item:not(:last-child)::after {
+    content: " | "; /* Adds a vertical bar separator between items */
+  }
+
+  .projects-container li,
+  .media-container li {
+    flex: 1 1 100%;
+  }
+}
+
+
+@media screen and (max-width: 300px) {
+  .resume-links {
+    flex-direction: column;
+    /* margin: 0.25rem 0.4rem; */
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .name-title {
+    font-size: 1rem !important;
+  }
 }

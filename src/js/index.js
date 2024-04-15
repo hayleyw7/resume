@@ -43,7 +43,7 @@ function capitalizeWord(word) {
     case "flutterdemo":
       return "Flutter Demo";
     case "operational":
-      return "Op";
+      return "";
     case "computer":
       return "PC";
     case "scrollbars":
