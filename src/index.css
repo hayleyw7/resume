@@ -226,18 +226,23 @@ h2.about {
 
 .contact-container ul {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   list-style-type: none;
+  padding: 0;
   margin: 0;
-  padding: 0 1rem;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .contact-container li {
-  flex: 0 0 calc(33.33% - 10px);
-  padding: 0 0 0.5rem 0;
-  margin: 5px;
-  box-sizing: border-box;
+  width: 10rem;
+  padding: 0.5rem;
   text-align: center;
+}
+
+.contact-container a {
+  display: block;
+  width: 100%;
 }
 
 .projects-container li:last-child,
@@ -357,7 +362,7 @@ h2.about {
   h2,
   .headline-item,
   .summary.body,
-  .resume-link{
+  .resume-link {
     font-size: 0.9rem !important;
   }
 
@@ -378,7 +383,7 @@ h2.about {
   }
 
   .resume-link {
-    padding: 0.2rem;
+    padding: 0.2rem 0.2rem 0.28rem 0.25rem;
     margin: 0.25rem 0.25rem 0.25rem 0.25rem;
   }
 
@@ -412,7 +417,7 @@ h2.about {
   .projects-container li,
   .media-container li,
   .contact-container li {
-    flex: 1 1 100%;
+    flex: 1 1 100% !important;
     margin-right: 0;
     margin-left: 0;  
     border-bottom: 1px solid var(--light-gray);
@@ -424,11 +429,21 @@ h2.about {
     border-bottom: 1px solid var(--light-gray);
   }
 
-  /* Removes bottom border for the last list item in each container */
   .projects-container li:last-child,
   .media-container li:last-child,
   .contact-container li:last-child {
     border-bottom: none;
+  }
+
+  .contact-container ul {
+    flex-wrap: wrap;
+  }
+
+  .contact-container li {
+    flex: 0 0 100%;
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0 1rem !important;
   }
 }
 
