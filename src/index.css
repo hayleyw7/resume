@@ -4,7 +4,10 @@
 :root {
   --bg-teal: #dfe5e6;
   --dark-gray: #565656;
-  --blue: #8197ad;
+  /* --blue: #8197ad; */
+  /* --blue: #333c44; */
+  /* --blue: #5f6d7a; */
+  --blue: #617486;
   --white: white;
   --lavender: #bdbcda;
   --light-gray: #f5f7f8;
