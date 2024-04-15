@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   addClickListenerToListSection("projects");
   addClickListenerToListSection("media");
+  addClickListenerToListSection("contact");
 });
 
 function shouldShowRepo(repoName) {
@@ -29,7 +30,7 @@ function capitalizeWord(word) {
     case "javascript":
       return "JS";
     case "ts":
-      return "TypeScript";
+      return "TS";
     case "whats":
       return "What's";
     case "localstorage":
@@ -48,6 +49,8 @@ function capitalizeWord(word) {
       return "PC";
     case "scrollbars":
       return "Scroll";
+    case "gamepad":
+      return "Popup";
     case "todo":
       return "To Do";
     case "sandbox":
@@ -102,59 +105,59 @@ function appendProjectToList(list, projectItem) {
 };
 
 function addClickListenerToListSection(section) {
-  const sectionMapping = {
-    projects: {
-      heading: ".projects-heading",
-      list: ".projects-list",
-      otherList: ".media-list"
-    },
-    media: {
-      heading: ".media-heading",
-      list: ".media-list",
-      otherList: ".projects-list"
-    },
-  };
+   const sectionMapping = {
+     projects: {
+       heading: ".projects-heading",
+       list: ".projects-list",
+       otherLists: [".media-list", ".contact-list"],
+     },
+     media: {
+       heading: ".media-heading",
+       list: ".media-list",
+       otherLists: [".projects-list", ".contact-list"],
+     },
+     contact: {
+       heading: ".contact-heading",
+       list: ".contact-list",
+       otherLists: [".projects-list", ".media-list"],
+     }
+   };
 
-  const { heading, list, otherList } = sectionMapping[section];
+   const headingElement = document.querySelector(sectionMapping[section].heading);
+   const listElement = document.querySelector(sectionMapping[section].list);
+   const otherListElements = document.querySelectorAll(sectionMapping[section].otherLists.join(", "));
 
-  const headingElement = document.querySelector(heading);
-  const listElement = document.querySelector(list);
-  const otherListElement = document.querySelector(otherList);
+   headingElement.addEventListener("click", function() {
+     // Toggle the visibility of the current section
+     if (listElement.classList.contains("hidden")) {
+       listElement.classList.remove("hidden");
+       headingElement.classList.add("expanded");
+     } else {
+       listElement.classList.add("hidden");
+       headingElement.classList.remove("expanded");
+     }
 
-  headingElement.addEventListener("click", function() {
-    let isListHidden = listElement.classList.contains("hidden");
+     // Hide all other sections
+     otherListElements.forEach(otherList => {
+       if (!otherList.classList.contains("hidden")) {
+         otherList.classList.add("hidden");
+         // Modify to get the heading element using class of the list modified to match heading class
+         const otherHeadingClass = otherList.className.replace("list", "heading");
+         const otherHeading = document.querySelector("." + otherHeadingClass);
+         if (otherHeading) {
+           otherHeading.classList.remove("expanded");
+         }
+       }
+     });
 
-    if (!otherListElement.classList.contains("hidden")) {
-      otherListElement.classList.add("hidden");
-      const otherHeading = document.querySelector(otherList.replace("-list", "-heading"));
-      if (otherHeading) {
-        otherHeading.classList.remove("expanded");
-        if (otherHeading.classList.contains("media-heading")) {
-          otherHeading.style.marginTop = "";
-        };
-      };
-    };
+     // Scroll to the current heading
+     headingElement.scrollIntoView({
+       behavior: "smooth",
+       block: "start"
+     });
+   });
+ };
 
-    if (isListHidden) {
-      listElement.classList.remove("hidden");
-      headingElement.classList.add("expanded");
-      if (heading === '.media-heading') {
-        headingElement.style.marginTop = "0";
-      };
-    } else {
-      listElement.classList.add("hidden");
-      headingElement.classList.remove("expanded");
-      if (heading === '.media-heading') {
-        headingElement.style.marginTop = "";
-      };
-    };
-
-    headingElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  });
-};
 
 fetch("https://api.github.com/users/hayleyw7/repos?per_page=200")
   .then(response => {

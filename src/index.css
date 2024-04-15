@@ -101,7 +101,8 @@ h2.about {
 
 /* code */
 .projects-heading,
-.media-heading {
+.media-heading,
+.contact-heading {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -111,12 +112,14 @@ h2.about {
   font-size: 1rem;
 }
 
-.media-heading {
+.media-heading,
+.contact-heading {
   margin-top: 0;
 }
 
 .projects-heading::after,
-.media-heading::after {
+.media-heading::after,
+.contact-heading::after {
   content: '\25BC';
   margin-left: 0.25rem;
   transition: transform 0.3s ease;
@@ -126,7 +129,8 @@ h2.about {
 }
 
 .projects-heading.expanded::after,
-.media-heading.expanded::after {
+.media-heading.expanded::after,
+.contact-heading.expanded::after {
   content: '\25B2';
 }
 
@@ -189,7 +193,7 @@ h2.about {
 .projects-container ul,
 .media-container ul {
   display: flex;
-  flex-wrap: wrap; /* Ensure flex items wrap into multiple columns */
+  flex-wrap: wrap; 
   padding: 0;
   list-style-type: none;
   margin: -0.75rem 1rem 1rem 1rem;
@@ -204,34 +208,56 @@ h2.about {
   border-bottom: 1px solid var(--light-gray);
 }
 
+.contact-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0; /* Adjusted to remove negative margin, add if needed */
+  padding: 0 1rem; /* Ensures padding only on the sides, not affecting child elements */
+}
+
+.contact-container li {
+  flex: 0 0 calc(33.33% - 10px); /* Precise control over flex basis and account for margins */
+  margin: 5px; /* Consistent margin around items */
+  padding: 0.5rem 0;
+  box-sizing: border-box;
+  text-align: center; /* Optional: for better alignment of content */
+}
+
 .projects-container li:last-child,
 .media-container li:last-child,
+.contact-container li:last-child,
 .projects-container li:nth-last-child(2):nth-child(odd),
-.media-container li:nth-last-child(2):nth-child(odd) {
+.media-container li:nth-last-child(2):nth-child(odd),
+.contact-container li:nth-last-child(2):nth-child(odd) {
   border-bottom: none;
 }
 
 .projects-container li:nth-child(odd),
-.media-container li:nth-child(odd) {
+.media-container li:nth-child(odd),
+.contact-container li:nth-child(odd) {
   margin-right: 0;
 }
 
 .projects-container li:nth-child(even),
-.media-container li:nth-child(even) {
+.media-container li:nth-child(even),
+.contact-container {
   margin-left: 0;
 }
 
 .projects-container a,
-.media-container a {
+.media-container a,
+.contact-container a {
   color: var(--dark-gray);
 }
 
 .projects-container a:hover,
-.media-container a:hover {
+.media-container a:hover,
+.contact-container a:hover {
   color: var(--blue);
 }
 
-.media {
+.contact {
   margin-bottom: 5rem;
 }
 
@@ -317,7 +343,7 @@ h2.about {
   .summary.body,
   .resume-link,
   li {
-    font-size: 0.6rem !important;
+    font-size: 0.7rem !important;
   }
 
   .headline {
@@ -338,30 +364,31 @@ h2.about {
   }
 
   .projects-heading::after,
-  .media-heading::after {
+  .media-heading::after,
+  .contact-heading::after {
     font-size: 0.5rem !important;
   }
 }
 
 @media screen and (max-width: 350px) {
   .headline-line {
-    display: contents; /* This makes the container 'disappear', placing its children directly under the parent */
+    display: contents; 
   }
 
   .headline-item {
-    display: inline; /* Ensures each item is displayed inline */
+    display: inline;
   }
 
   .headline-item:not(:last-child)::after {
-    content: " | "; /* Adds a vertical bar separator between items */
+    content: " | ";
   }
 
   .projects-container li,
-  .media-container li {
+  .media-container li,
+  .contact-container li {
     flex: 1 1 100%;
   }
 }
-
 
 @media screen and (max-width: 300px) {
   .resume-links {
