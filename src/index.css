@@ -101,9 +101,7 @@ h2.about {
 }
 
 /* code */
-.projects-heading,
-.media-heading,
-.contact-heading {
+.dropdown-heading {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -113,9 +111,7 @@ h2.about {
   font-size: 1rem;
 }
 
-.projects-heading:hover,
-.media-heading:hover,
-.contact-heading:hover {
+.dropdown-heading:hover {
   color: var(--lavender);
 }
 
@@ -128,14 +124,12 @@ h2.about {
   flex: 0 0 auto;
 }
 
-.media-heading,
+/* .media-heading,
 .contact-heading {
   margin-top: 0;
-}
+} */
 
-.projects-heading::after,
-.media-heading::after,
-.contact-heading::after {
+.dropdown-heading::after {
   content: '\25BC';
   margin-left: 0.25rem;
   transition: transform 0.3s ease;
@@ -144,9 +138,7 @@ h2.about {
   transform: translateY(0.1rem); 
 }
 
-.projects-heading.expanded::after,
-.media-heading.expanded::after,
-.contact-heading.expanded::after {
+.dropdown-heading.expanded::after {
   content: '\25B2';
 }
 
@@ -387,9 +379,7 @@ h2.about {
     margin: 0.25rem 0.25rem 0.25rem 0.25rem;
   }
 
-  .projects-heading::after,
-  .media-heading::after,
-  .contact-heading::after {
+  .dropdown-heading::after {
     font-size: 0.5rem !important;
   }
 }
@@ -403,9 +393,7 @@ h2.about {
     font-size: 0.7rem !important;
   }
 
-  .projects-heading,
-  .media-heading,
-  .contact-heading {
+  .dropdown-heading {
     font-size: 0.7rem !important;
   }
 
@@ -414,24 +402,18 @@ h2.about {
   }
 
   /* Applies to all list items in specified containers */
-  .projects-container li,
-  .media-container li,
-  .contact-container li {
+  .dropdown-container li {
     flex: 1 1 100% !important;
     margin-right: 0;
     margin-left: 0;  
     border-bottom: 1px solid var(--light-gray);
   }
 
-  .projects-container ul li:nth-last-child(2),
-  .media-container ul li:nth-last-child(2),
-  .contact-container ul li:nth-last-child(2) {
+  .dropdown-container ul li:nth-last-child(2) {
     border-bottom: 1px solid var(--light-gray);
   }
 
-  .projects-container li:last-child,
-  .media-container li:last-child,
-  .contact-container li:last-child {
+  .dropdown-container li:last-child {
     border-bottom: none;
   }
 

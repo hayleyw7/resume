@@ -1,10 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
-  addClickListenerToListSection("projects");
-  addClickListenerToListSection("media");
-  addClickListenerToListSection("contact");
-});
+window.onload = function() {
+  addDropdownFunctionality();
+};
 
-function shouldShowRepo(repoName) {
+const shouldShowRepo = (repoName) => {
   const hiddenKeywords = [
     "practice", "curriculum", "prework", "fundamentals", "hayleyw7", "homework", "2", "first", "freyr", "api", "resources", "intro", "pong", "skills", "assignments", "markdown", "workshop", "resume", "playground", "practice", "refactor", "debug", "eventPractice", "vocalization", "kit", "test", "dog", "library", "hello", "Hello", "demo", "vanilla", "airtable", "jq", "slim", "bootstrap", "best", "decoder", "operational-transformations", "python-conduit", "sandbox", "ts-terminal-programs", "ruby_fun", "kendoFun", "whats-cookin", "virtual_computer", "CodeSandbox",
     
@@ -121,53 +119,65 @@ function appendProjectToList(list, projectItem) {
   list.appendChild(listItem);
 };
 
-function addClickListenerToListSection(section) {
-  const sectionMapping = {
+const addDropdownFunctionality = () => {
+  const sections = {
     projects: {
       heading: ".projects-heading",
-      list: ".projects-list",
-      otherSections: ["media", "contact"],
+      container: ".projects-container",
+      otherSections: ["media", "contact", "background", "volunteering"],
     },
     media: {
       heading: ".media-heading",
-      list: ".media-list",
-      otherSections: ["projects", "contact"],
+      container: ".media-container",
+      otherSections: ["projects", "contact", "background", "volunteering"],
     },
     contact: {
       heading: ".contact-heading",
-      list: ".contact-list",
-      otherSections: ["projects", "media"],
+      container: ".contact-container",
+      otherSections: ["projects", "media", "background", "volunteering"],
+    },
+    background: {
+      heading: ".background-heading",
+      container: ".background-container",
+      otherSections: ["projects", "media", "contact", "volunteering"],
+    },
+    volunteering: {
+      heading: ".volunteering-heading",
+      container: ".volunteering-container",
+      otherSections: ["projects", "media", "contact", "background"],
     },
   };
 
-  const headingElement = document.querySelector(sectionMapping[section].heading);
-  const listElement = document.querySelector(sectionMapping[section].list);
-  const otherSections = sectionMapping[section].otherSections;
+  Object.keys(sections).forEach(section => {
+    const headingElement = document.querySelector(sections[section].heading);
+    const sectionContainer = document.querySelector(sections[section].container);
+    const otherSections = sections[section].otherSections;
 
-  headingElement.addEventListener("click", function() {
-    const isHidden = listElement.classList.contains("hidden");
-    if (isHidden) {
-      listElement.classList.remove("hidden");
-      headingElement.classList.add("expanded");
-    } else {
-      listElement.classList.add("hidden");
-      headingElement.classList.remove("expanded");
-    }
-
-    otherSections.forEach(otherSection => {
-      const otherList = document.querySelector(sectionMapping[otherSection].list);
-      const otherHeading = document.querySelector(sectionMapping[otherSection].heading);
-
-      if (!otherList.classList.contains("hidden")) {
-        otherList.classList.add("hidden");
-        otherHeading.classList.remove("expanded");
+    headingElement.addEventListener("click", function() {
+      const isHidden = sectionContainer.classList.contains("hidden");
+      if (isHidden) {
+        sectionContainer.classList.remove("hidden");
+        headingElement.classList.add("expanded");
+      } else {
+        sectionContainer.classList.add("hidden");
+        headingElement.classList.remove("expanded");
       }
-    });
 
-    // Scroll to the current heading
-    headingElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+      // Hide other sections
+      otherSections.forEach(otherSection => {
+        const otherContainer = document.querySelector(sections[otherSection].container);
+        const otherHeading = document.querySelector(sections[otherSection].heading);
+        if (!otherContainer.classList.contains("hidden")) {
+          otherContainer.classList.add("hidden");
+          otherHeading.classList.remove("expanded");
+        }
+      });
+
+      // Scroll to the current heading
+      headingElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
     });
   });
 };
