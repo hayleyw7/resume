@@ -6,8 +6,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function shouldShowRepo(repoName) {
   const hiddenKeywords = [
-    "practice", "curriculum", "prework", "fundamentals", "hayleyw7", "homework", "2", "first", "freyr", "api", "resources", "intro", "pong", "skills", "assignments", "markdown", "workshop", "resume", "playground", "practice", "refactor", "debug", "eventPractice", "vocalization", "kit", "test", "dog", "library", "hello", "Hello", "demo", "vanilla", "airtable", "jq", "slim", "bootstrap", "best"
+    "practice", "curriculum", "prework", "fundamentals", "hayleyw7", "homework", "2", "first", "freyr", "api", "resources", "intro", "pong", "skills", "assignments", "markdown", "workshop", "resume", "playground", "practice", "refactor", "debug", "eventPractice", "vocalization", "kit", "test", "dog", "library", "hello", "Hello", "demo", "vanilla", "airtable", "jq", "slim", "bootstrap", "best", "decoder", "operational-transformations", "python-conduit", "sandbox", "ts-terminal-programs", "ruby_fun", "kendoFun", "whats-cookin", "virtual_computer", "CodeSandbox",
+    
+    // probably remove early school ones?
+
+    "javascript-foundations", "jsFun", "fitlit", "intention-timer", 
+
+    // fix deploy
+    
+    "moods", "to-do-list", "anon-blog", "anon_blog", "data-vis", "whats-for-dinner", "rock-paper-scissors", "romcom"
+
+    // update readmes for all shown
   ];
+
+  // const excludedRepos = ["example-repo-name", "another-repo-to-exclude"];
+
+  // if (excludedRepos.includes(repoName)) {
+  //   return false;
+  // }
 
   return !hiddenKeywords.some(keyword => repoName.includes(keyword));
 };
