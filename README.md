@@ -22,3 +22,4 @@ Employment Background Information
 - Make lists 1 col on mobile
 - Convert spacing into units of 8
 - Lengthen about info
+- Add link preview favicon
