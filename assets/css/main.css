@@ -2845,9 +2845,8 @@ input, select, textarea {
 				color: rgba(255, 255, 255, 0.75);
 				background-attachment: fixed, fixed;
 				background-image: 
-						linear-gradient(rgba(176, 191, 216, 0.5), rgba(176, 191, 216, 0.5)), 
-						url("images/overlay1.png"), 
-						url("../../images/header.jpg");
+					linear-gradient(rgba(105, 115, 128, 0.8), rgba(132, 143, 153, 0.6)),
+					url("../../images/header.jpg");
 				background-size: auto, auto, cover;
 		}
 
