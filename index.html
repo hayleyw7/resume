@@ -79,19 +79,19 @@
 						<h2>Media coverage and panel participation</h2>
 					</header>
 					<p>Years of impact and recognition in STEM, volunteering, and organizing</p>
-					<div class="row gtr-150">
-
-						<div class="col-4 col-12-medium">
-							<h3>Volunteer of Month</h3>
-							<p>Bio when awarded and recognized at a coding education non-profit</p>
-							<ul class="actions special">
-								<li><a href="https://codethedream.org/meet-hayley-witherell-ctds-volunteer-of-the-month/" target="_blank" class="button">Article</a></li>
-							</ul>
-						</div>
-
+					<button class="button primary expand-btn">Expand</button>
+					<div class="container articles hidden">
+						<div class="row gtr-150">
+							<div class="col-4 col-12-medium">
+								<h3>Volunteer of Month</h3>
+								<p>Bio when awarded and recognized at a coding education non-profit</p>
+								<ul class="actions special">
+									<li><a href="https://codethedream.org/meet-hayley-witherell-ctds-volunteer-of-the-month/" target="_blank" class="button">Article</a></li>
+								</ul>
+							</div>
 						<div class="col-4 col-12-medium">
 							<h3>Turing Showcase Q&A</h3>
-							<p>Interview about founding and running Neurodiversity In Tech organization</p>
+							<p>Interview about founding and running ND In Tech organization</p>
 							<ul class="actions special">
 								<li><a href="https://www.youtube.com/watch?v=EStNdU5JQo4" target="_blank" class="button">Video</a></li>
 							</ul>
@@ -99,7 +99,7 @@
 
 						<div class="col-4 col-12-medium">
 							<h3>Blender Market</h3>
-							<p>Personal and professional bio when joining Autotroph's dev team</p>
+							<p>Professional bio when joining Autotroph's dev team</p>
 							<ul class="actions special">
 								<li><a href="https://mailchi.mp/blendermarket/introducing-our-expanding-dev-team" target="_blank" class="button">Mailer</a></li>
 							</ul>
@@ -107,7 +107,7 @@
 
 						<div class="col-4 col-12-medium">
 							<h3>Arrows Making an Impact</h3>
-							<p>Interview as alum about my impact and organizing of marginalized workers in STEM</p>
+							<p>Alum interview about my impact on marginalized STEM workers</p>
 							<ul class="actions special">
 								<li><a href="https://www.toledosua.org/alumnae/news/post/~board/alumnae-news/post/making-an-impact-hayley-witherell" target="_blank" class="button">Article</a></li>
 							</ul>
@@ -115,7 +115,7 @@
 
 						<div class="col-4 col-12-medium">
 							<h3>Code The Dream</h3>
-							<p>Participation in mentor panel about engineering industry diversity</p>
+							<p>Participation in panel about engineering industry diversity</p>
 							<ul class="actions special">
 								<li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7080232254467149824/" target="_blank" class="button">Post</a></li>
 							</ul>
@@ -131,7 +131,7 @@
 
 						<div class="col-4 col-12-medium">
 							<h3>Seed to Sound</h3>
-							<p>Interview on podcast about background and details of my industry organization</p>
+							<p>Interview on podcast about my industry organization background</p>
 							<ul class="actions special">
 								<li><a href="https://www.listennotes.com/podcasts/seed-to-sound/episode-2-colorado-badged-R6JEiGH-2SQ/" target="_blank" class="button">Episode</a></li>
 							</ul>
@@ -139,7 +139,7 @@
 
 						<div class="col-4 col-12-medium">
 							<h3>The Rooster</h3>
-							<p>Coverage and interview in magazine about my organization history and information</p>
+							<p>Coverage in magazine about my organization history</p>
 							<ul class="actions special">
 								<li><a href="https://therooster.com/articles/despite-the-rules-one-cannabis-industry-group-still-thrives-on-facebook/" target="_blank" class="button">Article</a></li>
 							</ul>
@@ -510,3 +510,20 @@ print 'It took ' + i + ' iterations to sort deck.';</code></pre>
 
 	</body>
 </html>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const expandBtn = document.querySelector('.expand-btn');
+		const articles = document.querySelector('.articles');
+
+		expandBtn.addEventListener('click', function() {
+			if (articles.classList.contains('hidden')) {
+				articles.classList.remove('hidden');
+				expandBtn.textContent = 'Collapse';
+			} else {
+				articles.classList.add('hidden');
+				expandBtn.textContent = 'Expand';
+			}
+		});
+	});
+</script>
