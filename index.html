@@ -72,14 +72,84 @@
 				</div>
 			</section>
 
+			<section id="two-b" class="main style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>TechSpace Top 8</h2>
+					</header>
+					<div class="container skills">
+						<div class="row gtr-150">
+
+							<div class="col-6 col-12-medium">
+								<ul class="alt">
+									<li>JavaScript</li>
+									<li>HTML | CSS</li>
+									<li>Bootstrap</li>
+									<li>jQuery</li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-12-medium">
+								<ul class="alt">
+									<li>Ruby on Rails</li>
+									<li>React</li>
+									<li>Heroku</li>
+									<li>Cypress</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+			<!-- <section id="two-c" class="main style2 special">
+				<div class="container">
+					<header class="major">
+						<h2>Favorite Side Projects</h2>
+					</header>
+					<div class="container">
+						<div class="row gtr-150">
+							<div class="col-4 col-12-medium">
+								<h3>Decisionator</h3>
+								<p>Can't make a decision?<br>We can help!</p>
+								<ul class="actions special">
+									<li><a href="https://decisionator.surge.sh/" target="_blank" class="button">Link</a></li>
+								</ul>
+							</div>
+						<div class="col-4 col-12-medium">
+							<h3>Type My Pet</h3>
+							<p>What's your pet's MBTI type?<br>Take this quiz!</p>
+							<ul class="actions special">
+								<li><a href="https://typemypet.surge.sh/" target="_blank" class="button">Link</a></li>
+							</ul>
+						</div>
+
+						<div class="col-4 col-12-medium">
+							<h3>Rotten Tomatillos</h3>
+							<p>Want to watch a new film?<br>We'll help you pick!</p>
+							<ul class="actions special">
+								<li><a href="https://rottentomatillos.surge.sh/" target="_blank" class="button">Link</a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</section> -->
+
 		<!-- Three -->
-			<section id="three" class="main style1 special">
+			<section id="three" class="main style2 special">
 				<div class="container">
 					<header class="major">
 						<h2>Media coverage and panel participation</h2>
 					</header>
 					<p>Years of impact and recognition in STEM, volunteering, and organizing</p>
-					<button class="button primary expand-btn medium">Article Links</button>
+
+
+					<ul class="actions special">
+						<li><button class="button primary expand-btn medium">Expand Media Links</button></li>
+					</ul>
+
 					<div class="container articles hidden">
 						<div class="row gtr-150">
 							<div class="col-4 col-12-medium">
@@ -519,10 +589,10 @@ print 'It took ' + i + ' iterations to sort deck.';</code></pre>
 		expandBtn.addEventListener('click', function() {
 			if (articles.classList.contains('hidden')) {
 				articles.classList.remove('hidden');
-				expandBtn.textContent = 'Collapse Links';
+				expandBtn.textContent = 'Collapse Media Links';
 			} else {
 				articles.classList.add('hidden');
-				expandBtn.textContent = 'Article Links';
+				expandBtn.textContent = 'Expand Media Links';
 			}
 		});
 	});

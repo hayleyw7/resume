@@ -3579,8 +3579,8 @@ input, select, textarea {
 	border-radius: 50% !important;
 }
 
-button.expand-btn {
-	margin-bottom: 2.5rem;
+button.button.primary.expand-btn.medium {
+	margin-bottom: 0 !important;
 }
 
 .hidden {
