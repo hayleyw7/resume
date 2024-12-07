@@ -278,6 +278,14 @@ input, select, textarea {
 				width: 100% !important;
 			}
 
+			.avatar-container {
+				display: flex !important;
+				justify-content: center;
+			}
+
+			.avatar {
+				max-width: 25rem !important;
+			}
 		}
 
 		@media screen and (max-width: 480px) {
