@@ -285,6 +285,7 @@ input, select, textarea {
 			}
 
 			.avatar {
+				max-height: 25rem !important;
 				max-width: 25rem !important;
 			}
 		}
@@ -2846,8 +2847,8 @@ input, select, textarea {
 				background-attachment: fixed, fixed;
 				background-image: 
 					linear-gradient(rgba(105, 115, 128, 0.8), rgba(132, 143, 153, 0.6)),
-					url("../../images/header.jpg");
-				background-size: auto, auto, cover;
+					url("../../images/pic06.jpg");
+				background-size: cover;
 		}
 
 			.main.style2 a {
@@ -3577,6 +3578,9 @@ input, select, textarea {
 
 .avatar {
 	border-radius: 50% !important;
+	filter: hue-rotate(340deg) saturate(95%) brightness(100%) contrast(90%);
+	max-height: 30rem !important;
+	max-width: 30rem !important;
 }
 
 button.button.primary.expand-btn.medium {
@@ -3589,4 +3593,13 @@ button.button.primary.expand-btn.medium {
 
 .skill-col {
 	list-style: none;
+	padding: 0;
+}
+
+.techspace {
+	padding-top: 0;
+}
+
+.main-top {
+	padding-bottom: 0;
 }
