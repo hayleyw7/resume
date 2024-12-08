@@ -30,3 +30,20 @@
 		$('.scrolly').scrolly();
 
 })(jQuery);
+
+// for media hide/show
+
+// document.addEventListener('DOMContentLoaded', function() {
+// 	const expandBtn = document.querySelector('.expand-btn');
+// 	const articles = document.querySelector('.articles');
+
+// 	expandBtn.addEventListener('click', function() {
+// 		if (articles.classList.contains('hidden')) {
+// 			articles.classList.remove('hidden');
+// 			expandBtn.textContent = 'Collapse Media Links';
+// 		} else {
+// 			articles.classList.add('hidden');
+// 			expandBtn.textContent = 'Expand Media Links';
+// 		}
+// 	});
+// });
