@@ -272,6 +272,15 @@ input, select, textarea {
 			width: 100%;
 		}
 
+		@media screen and (min-width: 980px) {
+			.avatar-container {
+				display: flex !important;
+				justify-content: flex-end !important;
+				align-items: center !important;
+				margin: 0 auto !important;
+			}
+		}
+
 		@media screen and (max-width: 980px) {
 
 			.container {
