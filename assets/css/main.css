@@ -98,7 +98,7 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #666;
+		color: black;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
@@ -110,7 +110,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		border-bottom: dotted 1px #666;
+		border-bottom: dotted 1px black;
 		color: inherit;
 		text-decoration: none;
 	}
@@ -121,7 +121,7 @@ input, select, textarea {
 		}
 
 	strong, b {
-		color: #555;
+		color: #2B2B2B;
 		font-weight: 400;
 	}
 
@@ -134,7 +134,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #555;
+		color: #2B2B2B;
 		line-height: 1em;
 		margin: 0 0 1em 0;
 	}
@@ -305,6 +305,11 @@ input, select, textarea {
 			.skill-col	{
 				margin-bottom: 0 !important;
 			}
+			
+			.skill {
+				flex: 1 1 calc(50% - 10px) !important;
+				margin-top: 0.5rem;
+			}
 
 			section.techspace {
 				padding-bottom: 3rem !important;
@@ -312,11 +317,13 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 480px) {
-
 			.container {
 				max-width: calc(100% - 3em);
 			}
 
+			.skill {
+				flex: 1 1 100% !important;
+			}
 		}
 
 /* Row */
@@ -2096,7 +2103,7 @@ input, select, textarea {
 	}
 
 	label {
-		color: #555;
+		color: #2B2B2B;
 		display: block;
 		font-size: 0.9em;
 		font-weight: 400;
@@ -2151,7 +2158,7 @@ input, select, textarea {
 	}
 
 		select option {
-			color: #555;
+			color: #2B2B2B;
 			background: #fff;
 		}
 
@@ -2191,7 +2198,7 @@ input, select, textarea {
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
-			color: #666;
+			color: black;
 			cursor: pointer;
 			display: inline-block;
 			font-size: 1em;
@@ -2234,8 +2241,8 @@ input, select, textarea {
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #666666;
-			border-color: #666666;
+			background: black666;
+			border-color: black666;
 			color: #ffffff;
 			content: '\f00c';
 		}
@@ -2366,7 +2373,7 @@ input, select, textarea {
 
 		.icon.major {
 			text-decoration: none;
-			color: #555;
+			color: #2B2B2B;
 			cursor: default;
 			display: inline-block;
 			margin: 0 0 1.5em 0;
@@ -2681,7 +2688,7 @@ input, select, textarea {
 		}
 
 		table th {
-			color: #555;
+			color: #2B2B2B;
 			font-size: 0.9em;
 			font-weight: 400;
 			padding: 0 0.75em 0.75em 0.75em;
@@ -2741,7 +2748,7 @@ input, select, textarea {
 		border-radius: 4px;
 		border: 0;
 		box-shadow: inset 0 0 0 1px rgba(144, 144, 144, 0.5);
-		color: #555 !important;
+		color: #2B2B2B !important;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.9em;
@@ -3615,6 +3622,14 @@ button.button.primary.expand-btn.medium {
 .skill-col {
 	list-style: none;
 	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	flex-wrap: wrap;
+}
+
+.skill {
+	flex: 1;
 }
 
 .techspace {
