@@ -147,6 +147,7 @@ input, select, textarea {
 	h1 {
 		font-size: 2.25em;
 		line-height: 1.35em;
+		font-weight: bolder;
 	}
 
 	h2 {
@@ -323,6 +324,10 @@ input, select, textarea {
 
 			.skill {
 				flex: 1 1 100% !important;
+			}
+
+			.embark-btn {
+				max-width: 85%;
 			}
 		}
 
@@ -2874,8 +2879,7 @@ input, select, textarea {
 				color: rgba(255, 255, 255, 0.75);
 				background-attachment: fixed, fixed;
 				background-image: 
-					linear-gradient(rgba(105, 115, 128, 0.8), rgba(132, 143, 153, 0.6)),
-					url("../../images/pic06.jpg");
+					linear-gradient(rgba(105, 115, 128, 0.8), rgba(132, 143, 153, 0.6));
 				background-size: cover;
 		}
 
@@ -2962,7 +2966,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 9em 0 9em 0 ;
+		padding: 9em 0 9em 0 !important;
 		background-color: #BFBCDC;
 		color: rgba(255, 255, 255, 0.75);
 		background-attachment: fixed,							fixed,							fixed;
@@ -3638,4 +3642,31 @@ button.button.primary.expand-btn.medium {
 
 .main-top {
 	padding-bottom: 3rem;
+}
+
+p.tagline {
+	background: white;
+	color: black;
+	opacity: 0.7;
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+
+.embark-container {
+	margin-top: 2.5rem !important;
+}
+
+.embark-btn:hover {
+  background: white !important;
+  opacity: 0.7 !important;
+}
+
+.embark-btn:hover strong {
+  color: black !important;
+}
+
+.fa-cloud {
+	opacity: 0.8;
 }
