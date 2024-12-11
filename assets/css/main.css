@@ -1,5 +1,5 @@
 @import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600,700,900");
 
 /*
 	Photon by HTML5 UP
@@ -150,12 +150,6 @@ input, select, textarea {
 		h1, h2, h3 {
 			font-weight: 400;
 		}
-
-	h1 {
-		font-size: 2.25em;
-		line-height: 1.35em;
-		font-weight: bolder;
-	}
 
 	h2 {
 		font-size: 2em;
@@ -3655,12 +3649,13 @@ button.button.primary.expand-btn.medium {
 
 p.tagline {
 	background: white;
-	color: black;
+	color: #2B2B2B;
 	opacity: 0.7;
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
 	padding-left: 1.25rem;
 	padding-right: 1.25rem;
+	font-weight: 400;
 }
 
 .embark-container {
@@ -3676,10 +3671,44 @@ p.tagline {
   color: black !important;
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 .fa-cloud {
 	opacity: 0.8;
+	font-size: 1.6em;
+	animation: float 3s ease-in-out infinite;
+	margin-bottom: 1rem !important;
+}
+
+h1 {
+	font-size: 3em;
+	line-height: 1.35em;
+	font-weight: 800;
+	-webkit-text-stroke: 1.5px #A4AFD3;
+		/* 
+	#A8B5D5
+	#A4AFD3
+	#B5BADC
+
+	#BBB5E1
+	#BFBCDC
+
+	#C9B0C6 
+	#CE9DB8
+	*/
 }
 
 .media-title {
 	font-weight: 400;
 }
+
