@@ -3084,6 +3084,7 @@ input, select, textarea {
 
 		#header h1 {
 			margin: 0;
+			opacity: 0.8;
 		}
 
 		#header p {
@@ -3650,7 +3651,7 @@ button.button.primary.expand-btn.medium {
 p.tagline {
 	background: white;
 	color: #2B2B2B;
-	opacity: 0.7;
+	opacity: 0.8;
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
 	padding-left: 1.25rem;
@@ -3664,7 +3665,7 @@ p.tagline {
 
 .embark-btn:hover {
   background: white !important;
-  opacity: 0.7 !important;
+  opacity: 0.8 !important;
 }
 
 .embark-btn:hover strong {
@@ -3694,7 +3695,7 @@ h1 {
 	font-size: 3em;
 	line-height: 1.35em;
 	font-weight: 800;
-	-webkit-text-stroke: 1.5px #A4AFD3;
+	/* -webkit-text-stroke: 1.5px #A4AFD3; */
 		/* 
 	#A8B5D5
 	#A4AFD3
