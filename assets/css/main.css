@@ -3672,23 +3672,73 @@ p.tagline {
   color: black !important;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.cloud-container {
+  position: relative;
+  display: inline-block;
 }
 
-.fa-cloud {
-	opacity: 0.8;
-	font-size: 1.6em;
-	animation: float 3s ease-in-out infinite;
-	margin-bottom: 1rem !important;
+/* Cloud styling (original size preserved) */
+.icon.solid.major.fa-cloud {
+  opacity: 0.8;
+  font-size: 1.6em; /* Original cloud size */
+  margin-bottom: 1rem !important;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Raindrop styles */
+.icon.solid.major.fa-tint {
+  font-size: 0.4em; /* 1/4 the size of the cloud */
+  color: white;
+  position: absolute;
+  top: calc(50% + 10px); /* Start 10px lower from the middle of the cloud */
+  opacity: 0; /* Hidden until animation starts */
+  pointer-events: none;
+}
+
+/* Adjusted raindrop positions */
+.drop1 { left: calc(50% - 30px); } /* Left drop */
+.drop2 { left: calc(50% + 13px); } /* Right drop */
+.drop3 { left: calc(50% - 9px); } /* Perfectly centered middle drop */
+
+/* Hover triggers staggered falling: left → right → middle */
+.cloud-container:hover .drop1 {
+  animation: drop 5s ease infinite;
+  animation-delay: 0s;
+}
+
+.cloud-container:hover .drop2 {
+  animation: drop 5s ease infinite;
+  animation-delay: 0.5s;
+}
+
+.cloud-container:hover .drop3 {
+  animation: drop 5s ease infinite;
+  animation-delay: 1s;
+}
+
+/* Falling animation */
+@keyframes drop {
+  0% {
+    opacity: 0; /* Hidden at the start */
+    transform: translateY(0); /* Start from adjusted top position */
+  }
+  10% {
+    opacity: 0.3; /* Appear just before dropping */
+  }
+  90% {
+    opacity: 0.3; /* Stay visible while falling */
+    transform: translateY(100vh); /* Fall to bottom */
+  }
+  100% {
+    opacity: 0; /* Fade out at the bottom */
+    transform: translateY(100vh);
+  }
 }
 
 h1 {
