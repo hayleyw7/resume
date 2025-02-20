@@ -1,11 +1,7 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600,700,900");
 
-/*
-	Photon by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+/* Photon | html5up.net | @ajlkn | CCA 3.0 */
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -3743,43 +3739,40 @@ p.tagline {
   color: black !important;
 }
 
+/* Cloud */
 
 .cloud-container {
   position: relative;
   display: inline-block;
 }
 
-/* Cloud styling (original size preserved) */
 .icon.solid.major.fa-cloud {
   opacity: 0.8;
-  font-size: 1.6em; /* Original cloud size */
+  font-size: 1.6em;
   margin-bottom: 1rem !important;
   animation: float 3s ease-in-out infinite;
 }
 
-/* Floating animation */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-/* Raindrop styles */
+/* Raindrop s*/
 .icon.solid.major.fa-tint {
-  font-size: 0.4em; /* 1/4 the size of the cloud */
+  font-size: 0.4em;
   color: white;
   position: absolute;
-  top: calc(50% + 10px); /* Start 10px lower from the middle of the cloud */
-  opacity: 0; /* Hidden until animation starts */
+  top: calc(50% + 10px);
+  opacity: 0;
   pointer-events: none;
 	z-index: 1;
 }
 
-/* Adjusted raindrop positions */
-.drop1 { left: calc(50% - 30px); } /* Left drop */
-.drop2 { left: calc(50% + 13px); } /* Right drop */
-.drop3 { left: calc(50% - 9px); } /* Perfectly centered middle drop */
+.drop1 { left: calc(50% - 30px); }
+.drop2 { left: calc(50% + 13px); }
+.drop3 { left: calc(50% - 9px); }
 
-/* Hover triggers staggered falling: left → right → middle */
 .cloud-container:hover .drop1 {
   animation: drop 5s ease infinite;
   animation-delay: 0s;
@@ -3795,21 +3788,20 @@ p.tagline {
   animation-delay: 1s;
 }
 
-/* Falling animation */
 @keyframes drop {
   0% {
-    opacity: 0; /* Hidden at the start */
-    transform: translateY(0); /* Start from adjusted top position */
+    opacity: 0;
+    transform: translateY(0);
   }
   10% {
-    opacity: 0.3; /* Appear just before dropping */
+    opacity: 0.3;
   }
   90% {
-    opacity: 0.3; /* Stay visible while falling */
-    transform: translateY(100vh); /* Fall to bottom */
+    opacity: 0.3;
+    transform: translateY(100vh);
   }
   100% {
-    opacity: 0; /* Fade out at the bottom */
+    opacity: 0;
     transform: translateY(100vh);
   }
 }
@@ -3818,21 +3810,8 @@ h1 {
 	font-size: 3em;
 	line-height: 1.35em;
 	font-weight: 800;
-	/* -webkit-text-stroke: 1.5px #A4AFD3; */
-		/* 
-	#A8B5D5
-	#A4AFD3
-	#B5BADC
-
-	#BBB5E1
-	#BFBCDC
-
-	#C9B0C6 
-	#CE9DB8
-	*/
 }
 
 .media-title {
 	font-weight: 400;
 }
-
