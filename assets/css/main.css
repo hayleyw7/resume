@@ -3222,9 +3222,13 @@ input, select, textarea {
 			border-bottom-color: rgba(255, 255, 255, 0.5);
 		}
 
-			#footer a:hover {
-				color: #ffffff;
-			}
+		#footer a {
+			transition: color 0.6s;
+		}
+
+		#footer a:hover {
+			color: #ffffff;
+		}
 
 		#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer strong, #footer b {
 			color: #ffffff;
@@ -3663,6 +3667,18 @@ p.tagline {
 	margin-top: 2.5rem !important;
 }
 
+.embark-btn {
+  position: relative;
+  z-index: 10;
+  transition: background 0.6s ease, opacity 0.6s ease;
+  will-change: background, opacity;
+}
+
+.embark-btn strong {
+  transition: color 0.6s ease;
+  will-change: color;
+}
+
 .embark-btn:hover {
   background: white !important;
   opacity: 0.8 !important;
@@ -3671,6 +3687,7 @@ p.tagline {
 .embark-btn:hover strong {
   color: black !important;
 }
+
 
 .cloud-container {
   position: relative;
@@ -3699,6 +3716,7 @@ p.tagline {
   top: calc(50% + 10px); /* Start 10px lower from the middle of the cloud */
   opacity: 0; /* Hidden until animation starts */
   pointer-events: none;
+	z-index: 1;
 }
 
 /* Adjusted raindrop positions */
