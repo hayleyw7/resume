@@ -3693,7 +3693,7 @@ p.tagline {
   opacity: 0.8;
   font-size: 1.6em;
   margin-bottom: 1rem !important;
-  animation: float 3s ease-in-out infinite;
+  animation: float 3s ease-in-out 1.5s infinite;
 }
 
 @keyframes float {
