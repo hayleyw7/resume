@@ -276,6 +276,16 @@ input, select, textarea {
 			width: 100%;
 		}
 
+		.last-intro-para {
+			margin-bottom: 0.2rem;
+		}
+
+		.avatar {
+			max-height: 28rem !important;
+			max-width: 28rem !important;
+		}
+
+
 		@media screen and (min-width: 980px) {
 			.avatar-container {
 				display: flex !important;
@@ -292,14 +302,18 @@ input, select, textarea {
 				width: 100% !important;
 			}
 
+			.last-intro-para {
+				margin-bottom: 2rem;
+			}
+
 			.avatar-container {
 				display: flex !important;
 				justify-content: center;
 			}
 
 			.avatar {
-				max-height: 25rem !important;
-				max-width: 25rem !important;
+				max-height: 23rem !important;
+				max-width: 23rem !important;
 			}
 
 			.main-top {
