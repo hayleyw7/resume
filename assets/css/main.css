@@ -3682,31 +3682,6 @@ p.tagline {
 	font-weight: 400;
 }
 
-.embark-container {
-	margin-top: 2.5rem !important;
-}
-
-.embark-btn {
-  position: relative;
-  z-index: 10;
-  transition: background 0.6s ease, opacity 0.6s ease;
-  will-change: background, opacity;
-}
-
-.embark-btn strong {
-  transition: color 0.6s ease;
-  will-change: color;
-}
-
-.embark-btn:hover {
-  background: white !important;
-  opacity: 0.8 !important;
-}
-
-.embark-btn:hover strong {
-  color: black !important;
-}
-
 /* Cloud */
 
 .cloud-container {
@@ -3782,4 +3757,61 @@ h1 {
 
 .media-title {
 	font-weight: 400;
+}
+
+/* Headers animations */
+
+.embark-container {
+  margin-top: 2.5rem !important;
+}
+
+.embark-btn {
+  position: relative;
+  z-index: 10;
+  color: #FFFFFF !important;
+  transition: background 0.8s ease, opacity 0.8s ease, color 0.8s ease !important;
+  will-change: background, opacity, color;
+}
+
+.embark-btn strong {
+  color: inherit !important;
+  transition: inherit !important;
+  will-change: color;
+}
+
+.embark-btn:hover {
+  background: white !important;
+  opacity: 0.8 !important;
+  color: #2B2B2B !important;
+}
+
+.embark-btn:hover strong {
+  color: #2B2B2B !important;
+}
+
+.header, .header * {
+  opacity: 0.8 !important;
+  visibility: visible !important;
+  transition: opacity 2s ease !important;
+}
+
+.embark-btn, .embark-btn::after {
+  opacity: 0.8 !important;
+  transition: opacity 0.8s ease, background 0.8s ease, color 0.8s ease !important;
+}
+
+.tagline, h1 {
+  opacity: 0.8 !important;
+  visibility: visible !important;
+  transition: opacity 2s ease !important;
+}
+
+body.is-preload .header,
+body.is-preload .tagline,
+body.is-preload h1,
+body.is-preload .embark-btn,
+body.is-preload .embark-btn::after {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: none !important;
 }
