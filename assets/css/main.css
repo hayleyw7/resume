@@ -2804,6 +2804,8 @@ input, select, textarea {
 		button:hover,
 		.button:hover {
 			background-color: rgba(144, 144, 144, 0.075);
+			transition: background 0.6s ease, color 0.6s ease;
+			will-change: color;
 		}
 
 		input[type="submit"]:active,
