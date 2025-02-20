@@ -2635,6 +2635,25 @@ input, select, textarea {
 
 /* Major Icons */
 
+.major-icons-container-parent {
+	display: flex;
+	flex: stretch;
+}
+
+.major-icons-container {
+	display: flex;
+	flex: stretch;
+}
+
+.major-icons-container,
+.major-icons,
+.major-icons-container-parent {
+  align-items: center;
+  height: 100%;
+	margin-bottom: 0;
+	flex: stretch;
+}
+
 	ul.major-icons {
 		list-style: none;
 		padding-left: 0;
@@ -2669,6 +2688,14 @@ input, select, textarea {
 					display: inline-block;
 					line-height: inherit;
 				}
+
+.bg-section {
+	padding-bottom: 7rem !important;
+}
+
+.last-volunteer-para {
+	margin-bottom: 0;
+}
 
 /* Table */
 
@@ -3406,6 +3433,14 @@ input, select, textarea {
 	@media screen and (max-width: 980px) {
 
 		/* List */
+
+		.bg-section {
+			padding-bottom: 2rem !important;
+		}
+
+			.major-icons-container {
+				margin-bottom: 2em;
+			}
 
 			ul.major-icons li {
 				padding: 2em;
