@@ -3461,16 +3461,26 @@ body.is-preload #header:after {
 		padding: 5em 3em 5em 3em ;
 	}
 
-	/* One */
+	/* One Two Three */
 
-	#one {
+	#one,
+	#two {
 		text-align: center;
 	}
 
-	/* Two */
+	#one p,
+	#two h3,
+	#two p {
+		text-align: left;
+	}
 
-	#two {
-		text-align: center;
+	#three h3 {
+		margin-top: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	#three p {
+		margin-bottom: 0.75rem;
 	}
 }
 
@@ -3556,6 +3566,11 @@ body.is-preload #header:after {
 /* XSmall */
 
 @media screen and (max-width: 480px) {
+	#three h3,
+	#three h4,
+	#three p {
+		text-align: left;
+	}
 
 	/* Button */
 
