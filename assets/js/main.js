@@ -23,4 +23,32 @@
 
 	// Scrolly
 	$('.scrolly').scrolly();
+
+	// Recognition - mobile styling
+	$window.on('resize load', function() {
+		if (breakpoints.active('xsmall')) {
+			$('h4').each(function() {
+				let $h4 = $(this);
+				let $nextP = $h4.next('p');
+
+				if ($nextP.length && !$nextP.data('h4-moved')) {
+					let h4Text = `<b>${$h4.text()}: </b>`;
+					$nextP.prepend(h4Text);
+					$nextP.data('h4-moved', true);
+					$h4.hide(); 
+				}
+			});
+
+		} else {
+			$('h4').show();
+			$('p').each(function() {
+				let $p = $(this);
+
+				if ($p.data('h4-moved')) {
+					$p.html($p.html().replace(/^<b>.*?:<\/b> /, ''));
+					$p.removeData('h4-moved');
+				}
+			});
+		}
+	});
 })(jQuery);

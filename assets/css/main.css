@@ -1318,6 +1318,17 @@ margin-left: -3em;
 }
 
 @media screen and (max-width: 736px) {
+	#three h3 {
+		font-size: 130% ;
+	}
+
+	#three h4 {
+		font-size: 120% ;
+	}
+
+	#three p {
+		font-size: 110% ;
+	}
 
 	.row {
 		display: flex;
@@ -1562,6 +1573,10 @@ margin-left: -3em;
 }
 
 @media screen and (max-width: 480px) {
+	#three h3 {
+		font-size: 130% !important;
+	}
+
 	.row {
 		display: flex;
 		flex-wrap: wrap;
@@ -3474,11 +3489,6 @@ body.is-preload #header:after {
 		text-align: left;
 	}
 
-	#three h3 {
-		margin-top: 1rem;
-		margin-bottom: 1.5rem;
-	}
-
 	#three p {
 		margin-bottom: 0.75rem;
 	}
@@ -3566,10 +3576,12 @@ body.is-preload #header:after {
 /* XSmall */
 
 @media screen and (max-width: 480px) {
-	#three h3,
-	#three h4,
 	#three p {
 		text-align: left;
+	}
+
+	#three h3 {
+		font-size: 140%;
 	}
 
 	/* Button */
