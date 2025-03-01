@@ -1330,6 +1330,10 @@ margin-left: -3em;
 		font-size: 110% ;
 	}
 
+	.tagline {
+		font-size: 110%;
+	}
+
 	.row {
 		display: flex;
 		flex-wrap: wrap;
@@ -1574,7 +1578,7 @@ margin-left: -3em;
 
 @media screen and (max-width: 480px) {
 	#three h3 {
-		font-size: 130% !important;
+		font-size: 120% !important;
 	}
 
 	.row {
@@ -2362,31 +2366,31 @@ input[type="radio"] + label:before {
 }
 
 .icon.style1:before {
-    color: #C9B0C6; /* Soft lavender */
+	color: #C9B0C6;
 }
 
 .icon.style2:before {
-    color: #F7D796; /* Muted blue */
+	color: #F7D796;
 }
 
 .icon.style3:before {
-    color: #C1DEE2 /* Soft teal for diversity */
+	color: #C1DEE2;
 }
 
 .icon.style4:before {
-    color: #F6B3B3; /* Light purple-pink */
+	color: #F6B3B3;
 }
 
 .icon.style5:before {
-    color: #F9B080;  /* Soft golden yellow */
+	color: #F9B080;
 }
 
 .icon.style6:before {
-    color:  #BFBCDC; /* Muted peachy orange for balance */
+	color: #BFBCDC;
 }
 
 .icon.style7:before {
-    color: #F85F69; /* Bright coral red */
+	color: #F85F69;
 }
 
 .icon.major {
@@ -3700,7 +3704,7 @@ button.button.primary.expand-btn.medium {
 
 p.tagline {
 	background: white;
-	color: #2B2B2B;
+	color: #686384;
 	opacity: 0.8;
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
@@ -3841,4 +3845,9 @@ body.is-preload .embark-btn::after {
   opacity: 0 !important;
   visibility: hidden !important;
   transition: none !important;
+}
+
+#one h2,
+#three h2 {
+	color: #686384;
 }

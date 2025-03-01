@@ -24,22 +24,34 @@
 	// Scrolly
 	$('.scrolly').scrolly();
 
-	// Recognition - mobile styling
+	// Dynamic mobile styling
 	$window.on('resize load', function() {
-		if (breakpoints.active('xsmall')) {
-			$('h4').each(function() {
-				let $h4 = $(this);
-				let $nextP = $h4.next('p');
+    if (breakpoints.active('small') || breakpoints.active('xsmall')) { 
+			$('.tagline').html(`Full-Stack Software Engineer`);
 
-				if ($nextP.length && !$nextP.data('h4-moved')) {
-					let h4Text = `<b>${$h4.text()}: </b>`;
-					$nextP.prepend(h4Text);
-					$nextP.data('h4-moved', true);
-					$h4.hide(); 
-				}
-			});
+			if (breakpoints.active('xsmall')) {
+				$('h4').each(function() {
+					let $h4 = $(this);
+					let $nextP = $h4.next('p');
 
-		} else {
+					if ($nextP.length && !$nextP.data('h4-moved')) {
+						let h4Text = `<b>${$h4.text()}: </b>`;
+						$nextP.prepend(h4Text);
+						$nextP.data('h4-moved', true);
+						$h4.hide(); 
+					}
+				});
+			}
+
+    } else {
+			$('.tagline').html(`
+				Full-Stack Software Engineer
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				Organization Founder
+				&nbsp;&nbsp;|&nbsp;&nbsp;
+				Educational Volunteer
+			`);
+
 			$('h4').show();
 			$('p').each(function() {
 				let $p = $(this);
@@ -49,6 +61,6 @@
 					$p.removeData('h4-moved');
 				}
 			});
-		}
+    }
 	});
 })(jQuery);
