@@ -279,9 +279,12 @@ pre code {
 	margin-bottom: 0.2rem;
 }
 
-.avatar {
-	max-height: 28rem !important;
-	max-width: 28rem !important;
+img.avatar {
+	max-height: 26rem !important;
+	max-width: 26rem !important;
+	border: 3px solid #6d7f92;
+	outline-offset: -1px;
+	padding: 0;
 }
 
 
@@ -3434,8 +3437,8 @@ body.is-preload #header:after {
 
 @media screen and (max-width: 980px) {
 	.avatar {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
+		margin-left: 1.5rem;
+		margin-right: 1.5rem;
 	}
 
 	/* List */
@@ -3859,4 +3862,18 @@ body.is-preload .embark-btn::after {
 
 #three h3 {
 	color: #333c44;
+}
+
+@media screen and (max-width: 980px) {
+	img.avatar {
+		max-height: 20rem !important;
+		max-width: 20rem !important;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	img.avatar {
+		max-height: 15rem !important;
+		max-width: 15rem !important;
+	}
 }
