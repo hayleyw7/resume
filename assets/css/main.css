@@ -282,10 +282,9 @@ pre code {
 img.avatar {
 	max-height: 26rem !important;
 	max-width: 26rem !important;
-	border: 3px solid #6d7f92;
+	/* border: 3px solid #6d7f92; */
 	outline-offset: -1px;
 	padding: 0;
-	background: #f5f7f8;
 }
 
 
