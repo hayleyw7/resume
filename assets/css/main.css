@@ -3875,4 +3875,15 @@ body.is-preload .embark-btn::after {
 		max-height: 15rem !important;
 		max-width: 15rem !important;
 	}
+
+	#header {
+		min-height: 100vh;
+	}
+
+	#header h1 {
+		font-size: 4rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-bottom: 1rem;
+	}
 }
