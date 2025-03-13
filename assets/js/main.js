@@ -26,41 +26,43 @@
 
 	// Dynamic mobile styling
 	$window.on('resize load', function() {
-    if (breakpoints.active('small') || breakpoints.active('xsmall')) { 
+		if (breakpoints.active('<=xsmall')) {
 			$('.tagline').html(`Full-Stack Software Engineer`);
 
-			if (breakpoints.active('xsmall')) {
-				$('h4').each(function() {
-					let $h4 = $(this);
-					let $nextP = $h4.next('p');
+			$('h4').each(function() {
+				let $h4 = $(this);
+				let $nextP = $h4.next('p');
 
-					if ($nextP.length && !$nextP.data('h4-moved')) {
-						let h4Text = `<b>${$h4.text()}: </b>`;
-						$nextP.prepend(h4Text);
-						$nextP.data('h4-moved', true);
-						$h4.hide(); 
-					}
-				});
-			}
-
-    } else {
-			$('.tagline').html(`
-				Full-Stack Software Engineer
-				&nbsp;&nbsp;|&nbsp;&nbsp;
-				Organization Founder
-				&nbsp;&nbsp;|&nbsp;&nbsp;
-				Educational Volunteer
-			`);
-
-			$('h4').show();
-			$('p').each(function() {
-				let $p = $(this);
-
-				if ($p.data('h4-moved')) {
-					$p.html($p.html().replace(/^<b>.*?:<\/b> /, ''));
-					$p.removeData('h4-moved');
+				if ($nextP.length && !$nextP.data('h4-moved')) {
+					$nextP.prepend(`<b class="h4-moved">${$h4.text()}: </b>`);
+					$nextP.data('h4-moved', true);
+					$h4.hide();
 				}
 			});
-    }
+
+		} else {
+			if (breakpoints.active('small')) {
+				$('.tagline').html(`Full-Stack Software Engineer`);
+			} else {
+				$('.tagline').html(`
+					Full-Stack Software Engineer
+					&nbsp;&nbsp;|&nbsp;&nbsp;
+					Organization Founder
+					&nbsp;&nbsp;|&nbsp;&nbsp;
+					Educational Volunteer
+				`);
+			}
+
+			$('h4').each(function() {
+				let $h4 = $(this);
+				let $nextP = $h4.next('p');
+
+				if ($nextP.data('h4-moved')) {
+					$nextP.find('.h4-moved').remove();
+					$nextP.removeData('h4-moved');
+					$h4.show();
+				}
+			});
+		}
 	});
 })(jQuery);
