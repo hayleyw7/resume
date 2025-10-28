@@ -2662,12 +2662,6 @@ ul.icons li .icon:before {
 	display: flex;
 }
 
-.major-icons-container-parent,
-.major-icons-container {
-	display: flex;
-	align-items: stretch;
-}
-
 .main-content-container-parent,
 .main-content {
 	align-items: center;
@@ -2676,15 +2670,18 @@ ul.icons li .icon:before {
 }
 
 .major-icons-container-parent,
-.major-icons-container,
-.major-icons {
-  align-items: center;
-  height: 100%;
-	margin-bottom: 0;
-	align-items: stretch;
+.major-icons-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
 }
 
 ul.major-icons {
+	align-items: center;
+	height: 100%;
+	margin-bottom: 0;
+	align-items: stretch;
 	list-style: none;
 	padding-left: 0;
 }
