@@ -2279,8 +2279,8 @@ input[type="radio"] + label {
 
 input[type="checkbox"]:checked + label:before,
 input[type="radio"]:checked + label:before {
-	background: black666;
-	border-color: black666;
+	background: black;
+	border-color: black;
 	color: #ffffff;
 	content: '\f00c';
 }
@@ -2658,22 +2658,30 @@ ul.icons li .icon:before {
 
 /* Major Icons */
 
-.main-content-container-parent,
+.main-content-container-parent {
+	display: flex;
+}
+
 .major-icons-container-parent,
 .major-icons-container {
 	display: flex;
-	flex: stretch;
+	align-items: stretch;
 }
 
 .main-content-container-parent,
-.main-content,
+.main-content {
+	align-items: center;
+  height: 100%;
+	margin-bottom: 0;
+}
+
 .major-icons-container-parent,
 .major-icons-container,
 .major-icons {
   align-items: center;
   height: 100%;
 	margin-bottom: 0;
-	flex: stretch;
+	align-items: stretch;
 }
 
 ul.major-icons {
