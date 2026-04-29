@@ -131,6 +131,10 @@ p {
 	margin: 0 0 2em 0;
 }
 
+#three p {
+	margin: 0 0 1em 0 !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	color: #2B2B2B;
 	line-height: 1em;
