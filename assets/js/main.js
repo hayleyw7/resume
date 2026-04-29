@@ -45,7 +45,7 @@
 				$('.tagline').html(`Full-Stack Software Engineer`);
 			} else {
 				$('.tagline').html(`
-					Full-Stack Software Engineer
+					Software Engineer
 					&nbsp;&nbsp;|&nbsp;&nbsp;
 					Organization Founder
 					&nbsp;&nbsp;|&nbsp;&nbsp;
