@@ -3357,6 +3357,11 @@ body.is-preload #header:after {
 	background-color: rgba(255, 255, 255, 0.25) !important;
 }
 
+.footer-text {
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
 #footer ul.major-icons li .icon {
 	border-color: #ffffff;
 }
@@ -3906,5 +3911,15 @@ body.is-preload .embark-btn::after {
 		padding-left: 1rem;
 		padding-right: 1rem;
 		padding-bottom: 1rem;
+	}
+}
+
+@media screen and (max-width: 980px) {
+	.footer-text {
+		margin-top: -25px;
+	}
+
+	.footer-text span {
+		display: none;
 	}
 }
